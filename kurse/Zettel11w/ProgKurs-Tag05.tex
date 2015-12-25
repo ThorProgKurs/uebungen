@@ -1,0 +1,24 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 5}
+
+\begin{document}
+
+\begin{aufg} Durch Pointer können nun Funktionen auf Variablen einer anderen Funktion zugreifen. Implementiere eine Funktion \verb|swap|, die den Inhalt zweier \verb|int|-Variablen vertauscht.
+\end{aufg}
+
+\begin{aufg}
+Implementiere ein Programm, dass ein \verb|int|-Array sortiert. Die naheliegenste Möglichkeit besteht wohl darin, zuerst das kleinste Element an die erste Stelle zu tauschen, dann das kleinste unter den Verbleibenden an die zweite Stelle zu tauschen, usw.
+\end{aufg}
+
+\begin{aufg}
+Erweitere das "`mymath"'-Modul noch um eine Funktion, die zu den drei Koeffizienten $a, b, c \in \R$ einer quadratischen Gleichung
+\[ a \cdot x^2 + b \cdot x + c = 0 \]
+die Lösungen berechnet. Sofern die Gleichung zwei Lösungen hat, sollten danach beide zur Verfügung stehen. Dies kann realisiert werden, indem man der Funktion auch einen Pointer übergibt, an dessen Adresse der Wert geschrieben wird.
+\end{aufg}
+
+
+\begin{aufg}
+Schreibe Funktionen \verb|square_to| und \verb|root_to|, die einen \verb|double|-Pointer entgegen nehmen, die dort stehende Variable quadrieren bzw. daraus die Wurzel ziehen und das Ergebnis sowohl zurück geben als auch an die gleiche Speicherstelle schreiben.
+\end{aufg}
+
+\end{document}

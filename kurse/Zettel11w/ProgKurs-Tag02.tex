@@ -1,0 +1,47 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 2}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+\begin{aufg} .
+\begin{enumerate}
+\item Implementiere den Primzahltest (Algorithmus 1) von gestern.
+\item Schreibe ein Programm, dass jeweils die nächste Primzahl nach $20000$, $30000$ und $40000$ findet.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Für $a \in \mathbb{R}^+$ und $n\in\mathbb{N}\cup\{0\}$ konvergiert die Folge $(a_n)$ mit $a_0 = a$ und
+\[ a_{n+1} = \frac{1}{2}\left(a_n + \frac{a}{a_n}\right) \]
+gegen $\sqrt{a}$. Implementiere damit einen Wurzellalgorithmus.
+\end{aufg}
+
+\begin{aufg}
+Implementiere den Algorithmus 2 von gestern, welcher den größten gemeinsamen Teiler zweier Zahlen berechnet.
+\end{aufg}
+
+\begin{aufg}
+Berechne die Summe der ersten $n$ ungeraden Zahlen mit einer Schleife. Wie ist die Ausgabe für $n = 1, \ldots ,15$. Was fällt dir auf? Könnte man diese Aufgabe nun also effizienter programmieren?
+\end{aufg}
+
+
+\begin{aufg}
+Implementiere den Cosinus über seine Reihendarstellung mit einer Schleife. Du kannst die Formel bei Wikipedia nachschlagen, sie selbst entwickeln oder diese hier verwenden:
+\[ \cos(x) = \sum_{k = 0}^{\infty}{(-1)^k \cdot \frac{x^{2k}}{(2k)!}} \]
+\end{aufg}
+
+
+
+\end{document}

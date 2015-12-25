@@ -1,0 +1,90 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 7}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\begin{aufg}
+Denke dir einen sinnvollen Namen aus für ein Modul, dass Vektorrechnung auf $\R^n$ implementiert. Vektoren sollen \verb|double|-Arrays mit der Länge $n$ sein. Implementiere die nachfolgenden Funktionen:
+\begin{enumerate}
+	\item eine Funktion, die genügend Speicher für einen Vektor reserviert und einen Pointer darauf zurück gibt
+	\item Vektoraddition und --subtraktion
+	\item Produkt eines Vektors mit einer skalaren Größe
+	\item Skalarprodukt zweier Vektoren
+	\item eine Funktion, die prüft, ob zwei Vektoren orthogonal zueinander stehen
+	\item eine Funktion, die prüft, ob zwei Vektoren parallel zueinander sind
+	\item eine Funktion, die einen Vektor auf der Konsole aus gibt
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg} Implementiere einige Funktionen um mit quadratischen Matrizen umzugehen:
+\begin{enumerate}
+\item Eine Funktion, die Speicher für eine quadratische Matrix allokiert, eine um ihn freizugeben, eine um sie auszugeben und eine um sie zur Einheitsmatrix zu initialisieren (das ist die Matrix mit $1$en auf der Hauptdiagonale und $0$en sonst):
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double **matrix_alloc(int n);
+void     matrix_free(double **A, int n);
+void     matrix_print(double **A, int n);
+double **matrix_id(double **A, int n);
+\end{lstlisting}
+\end{codelisting}
+\item Eine Funktion um eine Matrix zu transponieren (d.h. an der Hauptdiagonale ``zu spiegeln'')
+\item Eine Funktion, die zwei solche Matrizen miteinander multipliziert und eine neue Matrix zurück gibt. Für zwei $n \times n$-Matrizen $A = (a_{ij})$ und $B = (b_{ij})$ ist $A \cdot B = C = (c_{ij})$ über folgende Formel definiert: \[
+c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
+\]
+\end{enumerate}
+\end{aufg}
+
+
+
+\begin{aufg} Implementiere eine c-Datei zu folgender Header-Datei: 
+
+\smallskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* gibt die Länge eines Strings zurück */
+int str_len(char *s); 
+
+/* gibt 0 zurück, wenn zwei strings gleich 
+ * sind und 1 sonst */
+int str_cmp(char *s1, char *s2);
+
+/* kopiert s nach d und gibt d zurück */
+char *str_cpy(char *d, char *s);
+
+/* hänge s2 and s1 an und gib s1 zurück */ 
+char *str_cat(char* s1, char* s2)
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg}
+Diese Aufgabe läuft auf die Implementierung des Merge-Sort Algorithmus hinaus.
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|merge|, die zwei bereits sortierte (eventuell verschieden große) Arrays als Argumente erhält, diese zu einem sortieren Array kombiniert und dieses zurück liefert. 
+\item Die Funktion \verb|mergesort| selbst soll ein Array in zwei (möglichst gleich große) Teilarrays zerlegen, sich für diese Teilarrays selbst aufrufen und danach die dann sortierten Teilarrays mit der \verb|merge|-Funktion kombinieren. Erhält die Funktion ein Array mit keinem oder einem Element so belässt es dieses Array wie es ist, dann ist es nämlich bereits sortiert.
+\item Besorge dir die Datei \verb|daten.h|, sortiere das darin definierte Array und schreibe es sortiert in eine Datei.
+\end{enumerate}
+
+\noindent Hier als Tipp ein Vorschlag für die Signaturen der beiden Funktionen:
+
+\smallskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int *merge(int *list1, int n, int *list2, int m);
+void mergesort(int *list, int n);
+\end{lstlisting}
+\end{codelisting}
+
+\end{aufg}
+
+\end{document}

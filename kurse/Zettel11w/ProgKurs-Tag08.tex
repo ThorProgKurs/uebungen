@@ -1,0 +1,92 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 8}
+
+\begin{document}
+
+\begin{aufg} Lese noch einmal im Skript die Sektion 7.5 und implementiere doppelt verkettete Listen, die \verb|double|-Variablen speichern.
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Definiere hier angemessene Strukturen für einen
+   einzelnen Listeneintrag und die Liste selbst. */
+
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfügen, NULL heißt am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, double p);
+
+/* Element am Anfang bzw. Ende einfügen */
+LISTNODE *list_unshift(LIST *L, double p);
+LISTNODE *list_push(LIST *L, double p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurück geben */
+double list_shift(LIST *L);
+double list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfügen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\vfil 
+\begin{center}
+{\bf FLIP ME}
+\end{center}
+\vfil
+
+
+\newpage
+
+\begin{aufg}
+Implementiere "`dynamische Arrays"' von \verb|double|-Variablen. Also Funktionen, die es leicht ermöglichen mit dynamisch großen Arrays zu arbeiten. Verwende eine Header-Datei in folgendem Stil:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef struct {
+  double *data; /* eigentliches Array */
+  int length;   /* erstes nicht verwendetes Element */
+  int _size;    /* Menge der allokierten Elemente */
+} DBLARRAY;
+
+/* initialisiert eine Array-Datenstruktur. Liefert 1
+   bei Erfolg und andernfalls 0. */
+int dblarray_init(DBLARRAY *, int initial_size);
+
+/* gibt eine Array-Datenstruktur wieder frei */
+void dblarray_free(DBLARRAY *);
+
+/* Setzt den Wert an der Stelle i auf val. 
+   Falls nötig, wird neuer Speicher allokiert und 
+   alle Elemente bis dorthin mit 0 initialisiert */
+int dblarray_set(DBLARRAY *, int i, double val);
+
+/* gib den Wert an der Stelle i zurück */
+double dblarray_get(DBLARRAY *, int i);
+
+/* setze das erste nicht initialisierte Element auf 
+   val. Sollte es noch nicht existieren, wird neuer 
+   Speicher allokiert */
+int dblarray_push(DBLARRAY *, double val);
+
+/* Liefere das letzte initialisierte Element und
+   verringere die Länge des Arrays um 1. */
+double dblarray_pop(DBLARRAY *);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Schreibe Funktionen, die aus einer verketteten Liste ein \verb|DBLARRAY| und umgekehrt machen.
+\end{aufg}
+
+
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass{uebungszettel}
+
+\begin{document}
+\cohead{Tag 3}
+
+\begin{aufg} Finde heraus was ein Sudoku ist, danach schreibe ein Modul mit Funktionen, die
+\begin{enumerate}
+	\item prüft, ob ein Sudoku korrekt gelöst ist
+	\item ein teilweise ausgefülltes Sudoku löst
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Programm, dass ein Labyrinth aus einer Textdatei einliest, es könnte etwa wie folgt aussehen:
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX X
+X X XX XXX XXX X
+X   XX XXX XXX X
+XXX X   XX XXX X
+XXX   X        X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+\emph{Bemerkung: } Wir spezifizieren das Labyrinth hier nicht viel näher, entscheide dich selbst vorher was für ein Format die Datei haben soll und welche Einschränkungen du daran stellst: Soll die Größe des Labyrinths variabel sein oder fest? Soll die Größe in der ersten Zeile der Datei stehen oder nicht? Soll das Labyrinth quadratisch sein oder nicht? Soll es außen herum immer mit $X$en begrenzt sein oder hast du vielleicht eine andere Lösung?\\
+Das Programm soll einen Weg vom Startpunkt (dem Stern, dem Geburtsort) zum Dollar (dem Schatz) finden. Die $X$e sind Wände und Leerzeichen sind Pfade. Markiere einen Weg mit Punkten und gebe das Labyrinth mit Weg in der Konsole aus.
+
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting} 
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX.X
+X.X XX XXX XXX.X
+X...XX XXX XXX.X
+XXX.X...XX XXX.X
+XXX...X........X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+
+\end{aufg}
+
+
+\end{document}

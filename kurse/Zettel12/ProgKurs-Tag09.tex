@@ -1,0 +1,105 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 9}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+
+\begin{aufg}
+Schreibe ein Programm, dass ein Labyrinth aus einer Datei einliest:
+\begin{center}\begin{minipage}{1.65in}{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX X
+X X XX XXX XXX X
+X   XX XXX XXX X
+XXX X   XX XXX X
+XXX   X        X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}\end{minipage}\end{center}
+\emph{Bemerkung: } Wir spezifizieren das Labyrinth hier nicht viel näher, entscheide dich selbst vorher für ein Format. Soll die Größe des Labyrinths variabel sein oder fest? Soll die Größe in der ersten Zeile der Datei stehen oder nicht? Soll das Labyrinth quadratisch sein oder nicht? Soll es außen herum immer mit $X$en begrenzt sein oder hast du vielleicht eine andere Lösung?
+
+\vspace{1.5ex} Das Programm soll einen Weg vom Startpunkt (dem Stern) zum Schatz (dem Dollarzeichen) finden. Die $X$e sind Wände und Leerzeichen sind Pfade. Markiere einen Weg mit Punkten und gebe das Labyrinth mit Weg in der Konsole aus.
+
+\begin{center}\begin{minipage}{1.65in}{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX.X
+X.X XX XXX XXX.X
+X...XX XXX XXX.X
+XXX.X...XX XXX.X
+XXX...X........X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}\end{minipage}\end{center}
+\end{aufg}
+
+\begin{aufg} Implementiere ein Modul, das Rechenoperationen für ganzzahlige Brüche bereitstellt:
+
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef struct {
+      signed long int numerator;
+    unsigned long int denominator;
+} RATIONAL;
+\end{lstlisting}
+\end{codelisting}
+Es sollte Funktionen zum addieren, subtrahieren und multiplizieren von Brüchen geben. Das Ergebnis einer Rechnung sollte immer vollständig gekürzt sein.
+\end{aufg}
+
+\begin{aufg} Lies im Skript den Teil 7.5 über verkettete Listen. 
+Implementiere doppelt verkettete Listen, die anstatt einer \verb|double|-Variable beliebige Daten speichern können, als \verb|void*|. Die Header-Datei könnte etwa wie folgt aussehen:
+
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#ifndef _LIST__H
+#define _LIST__H
+
+LIST *list_create(); /* Leere Liste erstellen */
+
+/* Element hinter E einfügen, NULL heißt am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, void *p);
+
+/* Element am Anfang bzw. Ende einfügen */
+LISTNODE *list_unshift(LIST *L, void *p);
+LISTNODE *list_push(LIST *L, void *p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurück geben */
+void *list_shift(LIST *L);
+void *list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* Die Elemente aus Liste M an Liste L anhängen und
+   L zurückgeben. Nach Aufruf ist M leer. */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+#endif
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+
+\end{document}

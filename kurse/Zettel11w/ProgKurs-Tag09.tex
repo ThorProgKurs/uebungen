@@ -1,0 +1,77 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 9}
+\setlength{\parindent}{0px}
+
+\begin{document}
+\begin{aufg}
+In dieser Aufgabe geht es um numerische Integration.
+\begin{enumerate}
+\item Implementiere eine Integrationsfunktion, die das Intervall $[a, b]$ in $n$ gleich große Teile aufteilt, für diese jeweils die Trapzsumme berechnet und diese aufsummiert:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double integrate(double a, double b, 
+  double (*f)(double), unsigned int n); 
+\end{lstlisting}
+\end{codelisting}
+
+\item Schreibe nun eine Funktion, die nicht die Anzahl der Teilintervalle erhält, sondern eine ``Fehlertoleranz'' $e$. Die Funktion die Aufteilung solange verfeinern, bis sich der approximierte Wert für das Integral durch eine Verfeinerung nur noch um weniger als $e$ ändern würde. 
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg} Auf der Homepage gibt es ein Modul \verb|rationals|, in dem rationale Zahlen implementiert sind. Binde es in ein neues Projekt ein und deklariere ein Array von Brüchen, in etwa so:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+RATIONAL arr[7] = { 
+ {-1,2}, {1,2}, {3,4}, {9,7}, {10,1}, {7,3}, {11,2} };
+\end{lstlisting}
+\end{codelisting}
+Nun sortiere \verb|arr| mit Hilfe von \verb|qsort|.
+\end{aufg}
+
+\vfill 
+\begin{center}
+Flip me if you dare.
+\end{center}
+\vfill
+
+\newpage
+
+\begin{aufg}
+Brainfuck ist eine sogenannte esoterische Programmiersprache, das sind Sprachen, die meist zu wissenschaftlichen oder theoretischen Zwecken, oder einfach zum Spaß entwickelt wurden. 
+Brainfuck besteht nur aus $8$ Befehlen: $>$ $<$ $+$ $-$ $,$ $.$ $[$ $]$ alle anderen Zeichen werden als Kommentar interpretiert. Diese Befehle werden, wie bei C auch, nacheinander ausgeführt. Sie operieren auf einem (potentiell unendlich langen) Band (welches aus Zellen besteht in denen jeweils ein \verb|char| steht) indem sie einen Lese-- / Schreibkopf über das Band bewegen und Zeichen lesen / schreiben lassen. Das Band ist überall mit \verb|0| vorinitialisiert und der Lese-/Schreibkopf startet an ``Position $0$'' des Bandes. Die Befehle haben folgendee Bedeutung:
+
+\vspace{1ex}
+\begin{tabular}{|c|p{10cm}|} \hline
+$>$ bzw. $<$ & schiebt den Lese-/Schreibkopf eins nach rechts bzw. links \\\hline
+$+$ bzw. $-$ & in- bzw. dekrementiert den Bandwert unter dem Lese-/Schreibkopf um $1$ \\\hline
+$.$ & gibt den Wert unter dem Lese-/Schreibkopf aus \\\hline
+$,$ & liest ein Zeichen vom Benutzer ein und schreibt es unter den Lese-/Schreibkopf \\\hline
+$[$ & springt zum zugehörigen $]$-Befehl, wenn der Wert unter dem Lese-/Schreibkopf $0$ ist, sonst soll nichts passieren\\\hline
+$]$ & springt zum zugehörigen $[$-Befehl, wenn der Wert unter dem Lese-/Schreibkopf verschieden von $0$ ist\\\hline
+\end{tabular}
+
+\vspace{1ex}
+So sieht ein ``Hallo-Welt''-Programm in Brainfuck aus:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,mathescape=true]
+++++++++++
+[
+   >+++++++>++++++++++>+++>+<<<<-
+]
+>++.
+>+.
++++++++..
++++.>++.
+<<+++++++++++++++.
+>.+++.
+------.--------.
+>+.>.
+\end{lstlisting}
+\end{codelisting}
+Deine Aufgabe ist es nun, ein Programm zu schreiben, welches Brainfuck-Programme einlesen und ausführen kann. 
+\end{aufg}
+
+
+\end{document}

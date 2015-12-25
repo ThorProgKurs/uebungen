@@ -1,0 +1,62 @@
+\documentclass{uebungszettel}
+
+\begin{document} 
+\fontfamily{arial}\selectfont
+\cohead{Tag 5 - Übung 2}
+
+\begin{aufg}
+\begin{enumerate}
+\item
+Implementiere die Addition, Multiplikation, Potenzen und Division komplexer Zahlen. Verwende dazu folgende Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+struct COMPLEX {
+	double real;
+	double imag;
+};
+
+typedef struct COMPLEX COMPLEX;
+
+COMPLEX cplx_add(COMPLEX a, COMPLEX b);
+COMPLEX cplx_mult(COMPLEX a, COMPLEX b);
+COMPLEX cplx_pot(COMPLEX a, unsigned long n);
+COMPLEX cplx_div(COMPLEX a, COMPLEX b);
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere die Addition, Multiplikation und Division sowie das Kürzen rationaler Zahlen. Schreibe dazu erst die Header-Datei.
+\end{enumerate}
+\end{aufg}
+
+\pagebreak[4]
+
+\begin{aufg}
+Implementiere ``dynamische Arrays''. Also Funktionen, die es leicht ermöglichen mit dynamisch großen Arrays zu arbeiten. Verwende eine Header-Datei in folgendem Stil:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+struct DBLARRAY {
+  double *data; /* eigentliches Array */
+  int length;   /* erstes nicht verwendetes Element */
+  int _size;    /* Menge der allokierten Elemente */
+};
+
+typedef struct DBLARRAY DBLARRAY;
+
+/* initialisiert eine Array-Datenstruktur */
+DBLARRAY *dblarray_init();
+
+/* gibt eine Array-Datenstruktur wieder frei */
+void dblarray_free(DBLARRAY *);
+
+/* setzt den Wert an der Stelle i auf val 
+ * falls nötig wird neuer Speicher allokiert und 
+ * alle Elemente bis dorthin mit 0 initialisiert */
+int dblarray_set(DBLARRAY *, int i, double val);
+
+/* gib den Wert an der Stelle i zurück */
+double dblarray_get(DBLARRAY *, int i);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\end{document}

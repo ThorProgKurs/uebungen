@@ -1,0 +1,54 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 3}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+\begin{aufg} Implementiert eine Datenstruktur für Graphen als Adjazenzliste. Schreibt eine Funktion, um Graphen mit Kantengewichten aus einer Datei nach dem in der Vorlesung besprochenen Format einzulesen. In weiser Voraussicht könnte diese Einleseroutine den Index des Knotens \verb|s| zurückliefern, auch wenn dieser für die unmittelbar folgenden Aufgaben noch nicht relevant ist.
+\end{aufg}
+
+\begin{aufg}
+Schreibe eine Funktion, die irgendeinen gerichteten Kreis in einem Graphen in linearer Zeit findet und diesen ausgibt. Implementiere dazu \textbf{D}epth \textbf{F}irst \textbf{S}earch (DFS) mit einem Callback-Argument:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef int (*DFS_CALLBACK)(
+	GRAPH *G,    
+	int v,      /* Knotenindex */
+	void *data  /* Zusatzdaten (optional) */
+);
+
+/* Führt DFS auf dem Graphen G durch. Bei jedem Knoten 
+   wird (*cb) aufgerufen, wobei der Knotenindex und
+   der data-Pointer übergeben werden. Wenn die 
+   Rückgabe dieses Aufrufs 0 ist, so soll die Tiefen-
+   suche abgebrochen werden. */
+void graph_dfs(GRAPH* G, DFS_CALLBACK cb, void *data);
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Verwendet eure Heaps von gestern, um den Dijkstra-Algorithmus zu implementieren. Auf der Homepage findet ihr eine Graphendatei im besprochenen Format zum Testen.
+\medskip
+
+\noindent\textbf{Bonus!} Wir werden morgen zufällig Knotenindizes abfragen, und wer zuerst den Abstand von \verb|s| zu diesem Knoten nennen kann, bekommt eine Coke. \textbf{Bonus-Coke!!!}
+\end{aufg}
+
+\begin{aufg} Kauft euch Firefly und seht es euch an.
+\end{aufg}
+
+\begin{aufg}[$\ast$] Implementiere auch Breitensuche auf deinem Graphen mit Callback. Dazu musst du deine Listenimplementierung als Queue verwenden.
+\end{aufg}
+
+\end{document}

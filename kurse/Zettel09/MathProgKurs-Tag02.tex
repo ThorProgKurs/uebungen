@@ -1,0 +1,50 @@
+\documentclass{uebungszettel}
+
+\begin{document}
+\cohead{Tag 2}
+
+
+\begin{aufg}
+In dieser Aufgabe geht es um numerische Integration.
+\begin{enumerate}
+\item Implementiere eine Integrationsfunktion, die das Intervall $[a, b]$ in $n$ gleich große Teile aufteilt, für diese jeweils die Trapzsumme berechnet und diese aufsummiert:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double integrate(double a, double b, 
+  double (*f)(double), unsigned int n); 
+\end{lstlisting}
+\end{codelisting}
+
+Die Trapezsumme könnte etwa wie folgt implementiert werden:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#include <math.h>
+
+/* Definiere REALFUNC: Funktionen, welche ein
+   double erhalten und ein double liefern */
+typedef double (*REALFUNC)(double);
+
+double Trapez( REALFUNC f, double a, double b ) {
+  return fabs( (b-a) * (f(a)+f(b))/2.0 ); 
+}
+\end{lstlisting}
+\end{codelisting}
+
+\item Schreibe nun eine Funktion, die nicht die Anzahl der Teilintervalle erhält, sondern eine ``Fehlertoleranz'' $e$. Die Funktion die Aufteilung solange verfeinern, bis sich der approximierte Wert für das Integral durch eine Verfeinerung nur noch um weniger als $e$ ändern würde. 
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg} Implementiere eine Funktion die zu einem gegebenen Funktionenpointer $f:\R \rightarrow \R$, einem Dateinamen, einer Schrittweite $s \in \R$, einer Startstelle $x_1$ und einer Endstelle $x_2$ die Wertetabelle der Funktion zwischen $x_1$ und $x_2$ zur Schrittweite $s$ speichert. Dabei sollen $x$ und $f(x)$ durch einen Tabulator getrennt werden und jedes Paar $(x, f(x))$ in einer eigenen Zeile stehen.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}
+	\item Löse das $8$-Damen-Problem: Platziere $8$ Damen auf einem gewöhnlichen Schachbrett so, dass sie sich paarweise nicht bedrohen.
+	\item Löse das $n$-Damen Problem (auf einem $n \times n$-Schachbrett (mit einem Programm (auf einem Computer))).
+\end{enumerate}
+\end{aufg}
+
+\end{document}

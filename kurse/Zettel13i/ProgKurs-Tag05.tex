@@ -1,0 +1,57 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 5}
+\begin{document}
+\input{../a05-pointer.swap.int}
+\input{../a06-pointer.square_to.root_to.tex}
+\input{../a05-pointer.quadratische.gleichung.beide.loesungen.ohnetip.tex}
+\input{../a05-arrayhelpers.tex}
+
+
+\begin{aufg} Implementiere eine c-Datei zu folgender Header-Datei: 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* gibt die Laenge eines Strings zurueck */
+int str_len(char *s); 
+
+/* gibt 0 zurueck, wenn zwei strings gleich 
+ * sind und 1 sonst */
+int str_cmp(char *s1, char *s2);
+
+/* kopiert s nach d und gibt d zurueck */
+char *str_cpy(char *d, char *s);
+
+/* haege s2 and s1 an und gib s1 zurueck */ 
+char *str_cat(char* s1, char* s2);
+\end{lstlisting}
+\end{codelisting}
+und teste deinen Code mit folgendem Modul:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#include <stdio.h>
+#include "mystrings.h"
+
+int main() {
+	char p[100] = "Pepsi ";
+	char c[100] = "Coca ";
+	char suffix[10] = "Cola";
+	char out[100];
+	str_cpy(out,p); 
+	str_cat(out,suffix); 
+	str_cpy(p,out);
+	str_cpy(out,c);
+	str_cat(out,suffix);
+	str_cpy(c,out);
+	if (str_cmp(p,c)) {
+		printf("%s",p);
+		printf(" is not ");
+		printf("%s",c);
+		printf("\n");
+	}
+	return 0;
+}
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+
+\end{document}

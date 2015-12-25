@@ -1,0 +1,76 @@
+\documentclass{uebungszettel}
+\usepackage{hyperref}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 5}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+\begin{aufg} Lade dir \href{http://www.cygwin.com}{Cygwin} herunter und installiere das Paket für \href{http://openmp.org/wp/openmp-specifications/}{OpenMP}. Kompiliere folgendes Beispielprogramm 
+
+\smallskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#include <stdio.h>
+#include <omp.h>
+int main() {
+  double a [10000];
+  #pragma omp parallel
+  {
+    int i;
+    #pragma omp for
+    for (i=0; i< 10000; i++)
+      a[i] = i*i/2.0;
+    #pragma omp master
+    {
+      printf("%f\n", a[3432]);
+    }
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Schreibe eine parallelisierte Funktion zur Multiplikation von Matrizen.
+\end{aufg}
+
+\begin{aufg}
+Implementiere den Strassen-Algorithmus zur schnellen Matrixmultiplikation, natürlich parallelisiert.
+
+Für $C = A \cdot B$ mit $A, B, C \in \R^{2^n \times 2^n}$ sei folgende Partitionierung gegeben: 
+\begin{align*}
+A &= \begin{pmatrix} A_{1,1} & A_{1,2} \\ A_{2,1} & A_{2,2} \end{pmatrix}
+&B &= \begin{pmatrix} B_{1,1} & B_{1,2} \\ B_{2,1} & B_{2,2} \end{pmatrix}
+&C &= \begin{pmatrix} C_{1,1} & C_{1,2} \\ C_{2,1} & C_{2,2} \end{pmatrix} 
+\end{align*}
+wobei alle Untermatrizen gleich groß sind. Definiere 7 neue Matrizen: 
+\[ \begin{array}{rl}
+M_1 := & (A_{1,1} + A_{2,2}) \cdot (B_{1,1} + B_{2,2}) \\
+M_2 := & (A_{2,1} + A_{2,2}) \cdot B_{1,1} \\
+M_3 := & A_{1,1} \cdot (B_{1,2} - B_{2,2}) \\
+M_4 := & A_{2,2} \cdot (B_{2,1} - B_{1,1}) \\
+M_5 := & (A_{1,1} + A_{1,2}) \cdot B_{2,2} \\
+M_6 := & (A_{2,1} - A_{1,1}) \cdot (B_{1,1} + B_{1,2}) \\
+M_7 := & (A_{1,2} - A_{2,2}) \cdot (B_{2,1} + B_{2,2}) \\
+\end{array} \] daraus ergibt sich dann für die Lösung $C$: \[ \begin{array}{rl}
+C_{1,1} = & M_1 + M_4 - M_5 + M_7 \\
+C_{1,2} = & M_3 + M_5 \\
+C_{2,1} = & M_2 + M_4 \\
+C_{2,2} = & M_1 - M_2 + M_3 + M_6 \\
+\end{array} \] Dabei soll zur Berechnung der $M_i$ natürlich wieder der gleiche Algorithmus zur Matrixmultiplikation verwendet werden. Man spart insgesamt eine Matrixmultiplikation und verringert so den Aufwand von $O(n^3) = O(n^{\log_2(8)})$ auf $O(n^{\log_2(7)})$ also ungefähr $O(n^{2,807})$. 
+\end{aufg}
+
+
+
+\end{document}

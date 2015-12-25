@@ -1,0 +1,76 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 6}
+
+\begin{document}
+
+\begin{aufg}
+Werde zunächst mit Aufgabe 4 von Zettel 5 fertig. Implementiere dann noch die folgenden Stringfunktionen:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Allokiere genügend Speicher für eine Kopie von s  
+ * und kopiere den Inhalt von s dorthin. Liefere als
+ * Rückgabe die Anfangsadresse dieser Kopie. */
+char *str_dup(char *s);
+
+/* Setze s auf den String, der aus genau n Leerzeichen
+ * besteht. */
+char *str_spaceout(char *s, unsigned int n);
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Implementiere die folgenden Funktionen:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* pieces ist ein Array (von Strings) der Länge count.
+   Hänge diese Strings, getrennt durch sep, aneinander 
+   und liefere das Ergebnis. Beispiel:
+
+   char *p[3] = { "Ene", "Mene", "Miste" };
+   char *joined = str_join( p, 3, ", ");
+   printf("%s", joined);
+   free(joined); 
+
+   gibt aus: Ene, Mene, Miste */
+char  *str_join(char **pieces, int count, char *sep);
+
+/* Spalte str bei jedem Auftreten von sep auf und 
+   liefere das Array der entstehenden Strings.
+   Wäre etwa str der String "Ene, Mene, Miste" und
+   sep der String "," so sollte das zurückgegebene
+   Array die Strings
+
+     "Ene"     " Mene"     " Miste"
+   
+  enthalten (man bemerke die Leerzeichen). In count
+  wird die Länge des Arrays gespeichert, in diesem
+  Fall drei. Der String str selbst sollte von der 
+  Funktion natürlich nicht verändert werden. */
+char **str_split(char *str, char *sep, int *count);
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Implementiere einige Funktionen um mit quadratischen Matrizen umzugehen:
+\begin{enumerate}
+\item Eine Funktion, die Speicher für eine quadratische Matrix allokiert, eine um ihn freizugeben, eine um sie auszugeben und eine um sie zur Einheitsmatrix zu initialisieren (das ist die Matrix mit $1$en auf der Hauptdiagonale und $0$en sonst):
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double **matrix_alloc(int n);
+void     matrix_free(double **A, int n);
+void     matrix_print(double **A, int n);
+double **matrix_id(double **A, int n);
+\end{lstlisting}
+\end{codelisting}
+\item Eine Funktion um eine Matrix zu transponieren (d.h. an der Hauptdiagonale ``zu spiegeln'')
+\item Eine Funktion, die zwei solche Matrizen miteinander multipliziert und eine neue Matrix zurück gibt. Für zwei $n \times n$-Matrizen $A = (a_{ij})$ und $B = (b_{ij})$ ist $A \cdot B = C = (c_{ij})$ über folgende Formel definiert: \[
+c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
+\]
+\end{enumerate}
+\end{aufg}
+
+
+
+
+\end{document}

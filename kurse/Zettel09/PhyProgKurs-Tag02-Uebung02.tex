@@ -1,0 +1,33 @@
+\documentclass{uebungszettel}
+
+\begin{document} 
+\fontfamily{arial}\selectfont
+\cohead{Tag 2 - Übung 2}
+
+\begin{aufg}
+Implementiere die Signumsfunktion \texttt{sgn(x)}, den Absolutbetrag \texttt{betrag(x)}, \texttt{cos(x)} und die Wurzelfunktion \texttt{wurzel(x)} als Funktionen in einem eigenen Modul.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}
+\item Implementiere für $x \in \R$ und $n \in \N$ eine Potenzfunktion $x^n=$ \texttt{power(x, n)} mit der Double-and-Add-Methode: \[
+	power(x, n) = \left\{ \begin{array}{ll}
+	1 & \text{wenn } n = 0 \\
+	x \cdot power\left(x^2, \frac{n-1}{2}\right) & \text{wenn } n \text{ ungerade} \\
+	power\left(x^2, \frac{n}{2}\right) & \text{wenn } n \text{ gerade} \\
+	\end{array}
+	\right.
+\]
+zuerst mal rekursiv. 
+\item Implementiere eine Potenzfunktion \texttt{naiv\_power(x, n)}, indem du eine Schleife von $1$ bis $n$ laufen lässt und bei jedem Durchlauf eine mit $1$ Initialisierte Variable mit $x$ multipliziert. Berechne $0,9999999999^{2000000000}$ einmal mit \texttt{power(x, n)} von oben und einmal mit \texttt{naiv\_power(x, n)} (es sollte ca. $0,818731$ raus kommen). 
+\item* Implementiere die Double-and-Add-Methode iterativ, also ohne rekursiven Aufruf.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Implementiere die Riemann'sche Zeta-Funktion für $s \in \N$: $$
+\zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} $$
+\emph{Tipp:} Vielleicht kannst du die zuletzt implementierte Funktion \texttt{power(x, n)} dafür verwenden.
+\end{aufg}
+
+\end{document}

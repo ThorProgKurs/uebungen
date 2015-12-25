@@ -1,0 +1,47 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+\usepackage[pdftex]{hyperref}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\definecolor{linkcolor}{rgb}{0.5,0.08,0.08}
+\hypersetup{pdftex=true,colorlinks=true,breaklinks=true,linkcolor=linkcolor,menucolor=linkcolor,citecolor=linkcolor,filecolor=linkcolor,urlcolor=linkcolor,frenchlinks=false}
+
+\begin{document}
+\cohead{Tag 7}
+\noindent Auf dem heutigen Zettel geht es um Verschlüsselung mittels elliptischer Kurven. Zum Testen empfehlen wir die Kurve
+\[ E := \left\{\, (x,y) \in \mathbb{F}_p^2 \, \middle\vert \,
+   y^2 = x^3 + a x + b \, \right\} \cup \left\{\, \mathcal{O} \, \right\} \]
+mit den folgenden Parametern aus dem Brainpool Standard \footnote{\href{http://www.ecc-brainpool.org/download/draft-lochter-pkix-brainpool-ecc-00.txt}{http://www.ecc-brainpool.org/download/draft-lochter-pkix-brainpool-ecc-00.txt}}:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+Curve-ID: brainpoolP256r1
+p = A9FB57DBA1EEA9BC3E660A909D838D726E3BF623D526202820
+    13481D1F6E5377
+a = 7D5A0975FC2C3057EEF67530417AFFE7FB8055C126DC5C6CE9
+    4A4B44F330B5D9
+b = 26DC5C6CE94A4B44F330B5D9BBD77CBF958416295CF7E1CE6B
+    CCDC18FF8C07B6
+x = 8BD2AEB9CB7E57CB2C4B482FFC81B7AFB9DE27E1E3BD23C23A
+    4453BD9ACE3262
+y = 547EF835C3DAC4FD97F8461A14611DC9C27745132DED8E545C
+    1D54C72F046997
+q = A9FB57DBA1EEA9BC3E660A909D838D718C397AA3B561A6F790
+    1E0E82974856A7
+h = 1
+\end{lstlisting}
+\end{codelisting}
+
+\noindent  Die Parameter sind im Hexadezimalsystem angegeben. Hier ist außerdem $g = (x,y)$ ein Punkt auf der Kurve ist und $q = |\left<g\right>|$ die Anzahl Punkte in der von $g$ erzeugten Untergruppe.
+
+
+\begin{aufg} Implementiere unter Verwendung der GMP ein Modul, welches die Punktegruppe einer elliptischen Kurve implementiert. Es sollten mindestens Funktionen zur Verfügung stehen, eine Kurve zu gegebenen Parametern $a$ und $b$ zu erzeugen und Punkte auf dieser Kurve zu addieren.
+\end{aufg}
+
+\begin{aufg} Implementiere eine Funktion, die zu einem Punkt $p \in E$ und einer Zahl $n \in \mathbb{Z}_+$ den Punkt $n \cdot p \in E$ auf der Kurve berechnet. Eine \emph{naive} Möglichkeit ist es selbstverständlich, den Punkt $p$ genau $n$ mal aufzuaddieren. Wir kennen jedoch eine Methode zur schnellen Potenzierung von Zahlen, die prinzipiell auch hier anwendbar ist. (Stichwort: Double \& Add) \end{aufg}
+
+\end{document}

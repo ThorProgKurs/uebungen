@@ -1,0 +1,52 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic,tabularx}
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\newcommand{\utitle}{Tag 10}
+\begin{document}
+\begin{aufg}
+Brainfuck ist eine sogenannte esoterische Programmiersprache: Das sind Sprachen, die meist zu wissenschaftlichen oder theoretischen Zwecken, oder einfach zum Spaß entwickelt wurden. 
+
+Brainfuck besteht nur aus $8$ Befehlen: \verb|> < + - , . [ ]| -- alle anderen Zeichen werden als Kommentar interpretiert. Diese Befehle werden, wie bei C auch, nacheinander ausgeführt. Sie operieren auf einem (potentiell unendlich langen) Speicherband (welches aus Zellen besteht in denen jeweils ein \verb|char| steht) indem sie einen Lese-/Schreibkopf über das Band bewegen und Zeichen lesen/schreiben lassen. Das Band ist überall mit \verb|0| vorinitialisiert und der Lese-/Schreibkopf startet an ``Position \verb|0|'' des Bandes. Die Befehle haben folgendee Bedeutung:
+
+\medskip\noindent \begin{tabularx}{\textwidth}{@{}|c|X|} \hline
+\verb|>| & schiebt den Lese-/Schreibkopf um eine Position nach rechts \\\hline
+\verb|<| & schiebt den Lese-/Schreibkopf um eine Position nach links \\\hline
+\verb|+| & inkrementiert den Bandwert unter dem Lese-/Schreibkopf um \verb|1| \\\hline
+\verb|-| & dekrementiert den Bandwert unter dem Lese-/Schreibkopf um \verb|1| \\\hline
+\verb|.| & gibt den Wert unter dem Lese-/Schreibkopf aus \\\hline
+\verb|,| & liest ein Zeichen vom Benutzer ein und schreibt es unter den Lese-/Schreibkopf \\\hline
+\verb|[| & springt zum zugehörigen \verb|]|-Befehl, wenn der Wert unter dem Lese-/Schreibkopf gleich \verb|0| ist, sonst soll nichts passieren\\\hline
+\verb|]| & springt zum zugehörigen \verb|[|-Befehl, wenn der Wert unter dem Lese-/Schreibkopf verschieden von \verb|0| ist\\\hline
+\end{tabularx}
+
+\bigskip
+\noindent So sieht ein ``Hallo-Welt''-Programm in Brainfuck aus:
+
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,mathescape=true]
+++++++++++
+[ >+++++++>++++++++++>+++>+<<<<- ]
+>++.
+>+.
++++++++..
++++.>++.
+<<+++++++++++++++.
+>.+++.
+------.--------.
+>+.>.
+\end{lstlisting}
+\end{codelisting}
+Deine Aufgabe ist es nun, ein Programm zu schreiben, welches Brainfuck-Programme einlesen und ausführen kann. 
+\end{aufg}
+
+
+\rofoot{SS12}
+\end{document}

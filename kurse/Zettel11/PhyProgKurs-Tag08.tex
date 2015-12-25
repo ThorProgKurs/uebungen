@@ -1,0 +1,46 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 8}
+
+\begin{document}
+
+\begin{aufg} Erst mal mit den anderen Zetteln fertig werden. \end{aufg}
+
+
+\begin{aufg} Lese noch einmal im Skript die Sektion 7.5 und implementiere doppelt verkettete Listen, die beliebige Daten speichern können (als \verb|void *|).
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Definiere hier angemessene Strukturen für einen
+   einzelnen Listeneintrag und die Liste selbst. */
+
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfügen, NULL heißt am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, void *p);
+
+/* Element am Anfang bzw. Ende einfügen */
+LISTNODE *list_unshift(LIST *L, void *p);
+LISTNODE *list_push(LIST *L, void *p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurück geben */
+void *list_shift(LIST *L);
+void *list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfügen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+
+\end{aufg}
+
+
+\end{document}

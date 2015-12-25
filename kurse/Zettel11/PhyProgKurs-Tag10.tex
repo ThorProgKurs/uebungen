@@ -1,0 +1,27 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 10}
+\setlength{\parindent}{0px}
+
+\begin{document}
+
+\begin{aufg} Installiere die Gnu Multiprecision Library auf deinem System (auf Linux-Rechnern sollte sie bereits verfügbar sein) und faktorisiere die Zahl
+\verb|272963285971849714829857456457|.
+\end{aufg}
+
+\begin{aufg} Schreibe eine Funktion
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+mpf_t mpf_exp(mpf_t x, unsigned long int prec);
+\end{lstlisting}
+\end{codelisting}
+welche $e^x$ mit genau \verb|prec| Nachkommastellen Präzision als GMP-Float berechnet.
+\end{aufg}
+
+\begin{aufg} Implementiere eine parallelisierte Matrixmultiplikation mit der in der Vorlesung vorgestellten Bibliothek OpenMP.
+\end{aufg}
+
+\begin{aufg} q3dm17 vs Nikolai.
+\end{aufg}
+
+
+\end{document}

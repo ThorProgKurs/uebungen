@@ -1,0 +1,47 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 2}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+\begin{aufg}
+Implementiere einen Heap in einem eigenen Modul, wobei die Knoten im Heap beliebige Informationen speichern können.
+\end{aufg}
+
+\begin{aufg}
+Schreibe eine Funktion, die den Heap graphisch auf der Kommandozeile ausgibt. Zum Beispiel etwa so, oder klüger:
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+                     2
+             ________|________
+             3               4
+         ____|____       ____|____
+         6       6       5       5
+       __|__   __|__   __|__   __|__
+       9   9   7   9   6   7   6
+\end{lstlisting}
+\end{aufg}
+
+\begin{aufg} Schreibe eine Funktion, die eine Liste von Punkten
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef struct POINT {
+	double x;
+	double y;
+} POINT;
+\end{lstlisting}
+\end{codelisting}
+nach ihrem Abstand von einem vorgegebenen Punkt sortiert. Verwende dazu den Heap aus Aufgabe 1.
+\end{aufg}
+
+\end{document}

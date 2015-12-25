@@ -1,0 +1,34 @@
+\documentclass{uebungszettel}
+
+\begin{document} 
+\fontfamily{arial}\selectfont
+\cohead{Tag 3 - Übung 1}
+
+
+\begin{aufg}
+Erweitere das "`mymath"'-Modul noch um eine Funktion, die zu den drei Koeffizienten $a, b, c \in \R$ einer quadratischen Gleichung $$
+a \cdot x^2 + b \cdot x + c = 0 $$
+die Lösungen berechnet und beide Lösungen zurück gibt.
+\end{aufg}
+
+\begin{aufg}
+Schreibe Funktionen \verb|square_to| und \verb|root_to|, die einen \verb|double|-Pointer entgegen nehmen, die dort stehende Variable quadrieren bzw. daraus die Wurzel ziehen und das Ergebnis sowohl zurück geben als auch an die gleiche Speicherstelle schreiben.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}
+\item Vielleicht kennt ihr das Cantor'sche Diagonalverfahren, man verwendet es beispielsweise um zu zeigen, dass $\N$ und $\Q$ gleichmächtig sind. Eine Funktion $\pi: \N^2 \rightarrow \N$, die einem Pärchen natürlicher Zahlen ihre Nummer auf dem "`Weg"' durch das Diagonalschema zuordnet ist gegeben durch: \[
+	\pi(x, y) = \frac{(x+y) \cdot (x+y+1)}{2} + y \]
+Implementiere die Funktion $\pi$ in einem eigenen Modul "`CantorDiag"'.
+\item Es lässt sich zeigen, dass diese Funktion invertierbar ist. Die Werte der Inversen $\pi^{-1}: \N \rightarrow \N^2$ lassen sich mit folgender Methode berechnen: Zu einem $z = \pi(x, y)$ erhält man $x$ und $y$ zurück mit \[
+w = \left\lfloor \frac{\sqrt{8\cdot z + 1}-1}{2} \right\rfloor;
+t = \frac{w^2 + w}{2};
+y = z - t;
+x = w -y \]
+Implementiere auch diese Funktion indem du die Zahl $z$ und Pointer auf Variablen $x$ und $y$ übergibst in das gleiche Modul wie $\pi$. 
+\item Zeige: $\forall z \in \N \cap [0, 1000]: \pi\left(\pi^{-1}\left(z\right)\right) = z$
+\end{enumerate}
+\end{aufg}
+
+
+\end{document}

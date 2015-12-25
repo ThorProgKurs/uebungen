@@ -1,0 +1,28 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\newcommand{\utitle}{Tag 9}
+\begin{document}
+
+\begin{aufg} Spiele ein wenig mit OpenMP herum:
+\begin{itemize}
+\item Verstehe die Beispiele aus dem Skript und aus der OpenMP-Dokumentation; siehe die Webseite für die entsprechenden Links.
+\item Forke und gib ein paar Zeilen auf der Kommandozeile aus. Prüfe, ob bei mehreren Threads ein Durcheinander entsteht und repariere das Problem mit Hilfe von Locks und/oder kritischen Regionen.
+\item Überlege bei vergangenen Aufgaben, ob sich Schleifen parallelisieren lassen und tue es, falls möglich.
+\end{itemize}
+\end{aufg}
+
+\begin{aufg} Parallelisiere deine Matrix-Multiplikation. Wenn du bereit bist, deinem Verstand endgültig lebwohl zu sagen, implementiere den Strassen-Algorithmus zur Matrix-Multiplikation mit Parallelisierung.
+\end{aufg}
+
+
+\rofoot{SS12}
+\end{document}

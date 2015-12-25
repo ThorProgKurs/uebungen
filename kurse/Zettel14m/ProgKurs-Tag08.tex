@@ -1,0 +1,85 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+\begin{aufg}
+~\begin{enumerate}
+\item Implementiere die Addition, Multiplikation, Potenzen und Division komplexer Zahlen. Verwende dazu folgende Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#ifndef _COMPLEX__H
+#define _COMPLEX__H
+
+typedef struct _COMPLEX {
+	double real;
+	double imag;
+} COMPLEX;
+
+COMPLEX cplx_add(COMPLEX a, COMPLEX b);
+COMPLEX cplx_mul(COMPLEX a, COMPLEX b);
+COMPLEX cplx_pow(COMPLEX a, unsigned long n);
+COMPLEX cplx_div(COMPLEX a, COMPLEX b);
+
+#endif
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere die Addition, Multiplikation und Division sowie das Kürzen rationaler Zahlen. Schreibe dazu erst die Header-Datei.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+~\begin{enumerate}
+\item Schreibe eine Funktion, die mithilfe von \verb|qsort| ein Array von Strings lexikographisch (wie im Telefonbuch) sortiert. Das heißt, dass erst nach der ersten Stelle sortiert wird, dann nach der Zweiten usw. In der \verb|<string.h>| liegt eine Vergleichsfunktion für diese Situation vor: \verb|strcmp|. Als Beispiel hier eine lexikographisch sortierte Liste: 1, 10, 133, 2, 2344, Hallo, Thor, Tor.
+\item Verwende \verb|qsort|, um rationale Zahlen zu sortieren, in etwa solche:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+RATIONAL arr[6] = { 
+ {-1,2}, {1,2}, {3,4}, {9,7}, {10,1}, {7,3} };
+\end{lstlisting}
+\end{codelisting}
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Implementiere doppelt verkettete Listen, die beliebige Daten speichern (als \verb|void *|).
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfuegen, NULL heisst am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, void *p);
+
+/* Element am Anfang bzw. Ende einfuegen */
+LISTNODE *list_unshift(LIST *L, void *p);
+LISTNODE *list_push(LIST *L, void *p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurueck geben */
+void *list_shift(LIST *L);
+void *list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfuegen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+
+Wenn dir das mit den \verb|void *| zu schwierig ist, verwende \verb|double| als Datentyp.
+\end{aufg}
+
+\begin{aufg}
+Verwende deine Listen-Implementierung um eine sog. \verb|int|-Stack und eine \verb|double|-Queue zu implementieren.
+
+\begin{itemize}
+\item Ein \emph{Stack} ist eine Datenstruktur zum speichern mehrerer Einträge, welche nur die Operationen push und pop unterstützt: das heißt, man kann immer nur am Ende des Stacks neue Daten anfügen und auch nur von dort Daten entfernen (Natürlich würde man einen Stack für gewöhnlich mit einer Array implementieren)
+\item Eine \emph{Queue} ist eine Datenstruktur, welche ausschließlich die Operationen unshift und pop unterstützt: Man kann nur am Anfang Daten anfügen und nur am Ende Daten entfernen.
+\end{itemize}
+\end{aufg}
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+Bitte die bisherigen Übungszettel zuende bearbeiten.
+
+\begin{aufg} Lege ein Modul \verb|mymath.c| / \verb|mymath.h| an, in dem du die bisher geschriebenen Funktionen auslagerst.
+\end{aufg}
+\begin{aufg}
+Erweitere das "`mymath"'-Modul noch um weitere Funktionen, z.B.:
+\begin{enumerate}
+  \item $\log_a(x)$ mit beliebigen Argumenten $a \in \R$ und $x \in \R^+$
+  \item Fakultät $n!$ für $n \in \N$ (falls nicht schon lange geschehen)
+  \item für die $k$-te Wurzel aus $x\in \R^+_0$ mit $k \in \R^+$
+  \item eine Funktion, die zu zwei Seiten eines Dreiecks und ihrem eingeschlossenen Winkel die Länge der dritten Seite zurück gibt
+  \item Eine Funktion, die zu den drei Koeffizienten $a, b, c \in \R$ einer quadratischen Gleichung $$
+a \cdot x^2 + b \cdot x + c = 0 $$
+die Lösungen berechnet und die größere Lösung zurück gibt. 
+\end{enumerate}
+Mache das natürlich nur so lange, wie du glaubst etwas zu lernen.
+\end{aufg}
+
+Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Diese Funktion wird aber vermutlich zu langsam sein, daher gibt es die Funktion 
+
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+
+in der Systemheader \verb|<math.h>|. Im Skript findest du bei Interesse im Anhang eine Referenz einiger Systembibliotheken.
+
+\begin{aufg}
+Implementiere die Riemann'sche Zeta-Funktion für $s \in \R$: $$
+\zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} $$
+\end{aufg}
+
+\end{document}

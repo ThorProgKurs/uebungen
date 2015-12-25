@@ -1,0 +1,18 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 4}
+\begin{document}
+\input{../a04-module.alte.funktionen.auslagern.tex}
+
+Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Diese Funktion wird aber vermutlich zu langsam sein, daher gibt es die funktion 
+
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+
+in der Systemheader \verb|<math.h>|. Im Skript findest du im Anhang eine vollständige Referenz einiger Systembibliotheken.
+
+\input{../a03-funktionen.zeta.ganzzahlig.tex}
+\input{../a04-module.quadratische.gleichung.tex}
+\input{../a05-arrays.sort.naiv.int.tex}
+
+\end{document}

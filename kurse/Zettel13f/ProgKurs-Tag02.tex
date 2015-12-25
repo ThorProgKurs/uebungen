@@ -1,0 +1,32 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 2}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+\begin{aufg} Implementiert eine Datenstruktur für Graphen als Adjazenzliste. Schreibt eine Funktion, um Graphen mit Kantengewichten aus einer Datei einzulesen. Die Datei soll im folgenden Format sein:
+\begin{itemize}
+\item In der ersten Zeile der Datei stehen die Knotenzahl $n$, gefolgt von der Kantenanzahl $m$.
+\item Danach folgen $m$ Zeilen, jede beschreibt eine Kante: Die Zeile beginnt mit der Nummer des ersten Knoten $v$, gefolgt von der Nummer des zweiten Knoten $w$, gefolgt vom Gewicht der Kante $(v,w)$. Das Gewicht sollte als \verb|double| eingelesen werden. 
+\end{itemize}
+\end{aufg}
+
+\begin{aufg}
+Implementiere eine Heap-Datenstruktur und den Dijkstra Algorithmus. Wir werden auf der Homepage einige Beispielinstanzen von Graphen haben. Der Startknoten für Dijkstra ist stets der Knoten mit der Nummer $0$.
+\end{aufg}
+
+
+
+\end{document}

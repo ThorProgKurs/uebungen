@@ -1,0 +1,26 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 5}
+\begin{document}
+\input{../a04-module.alte.funktionen.auslagern.tex}
+
+Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als
+Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte
+sie jetzt im \verb|mymath|-Modul verfügbar sein. Diese Funktion wird aber
+vermutlich zu langsam sein, daher gibt es die Funktion
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+in dem Systemheader \verb|<math.h>|. Im Skript findest du im Anhang eine
+vollständige Referenz einiger Systembibliotheken.
+
+\medskip \textbf{Hinweis:} Unter Linux muss man dem gcc noch den Linker-Befehl \verb|-lm| übergeben, um den Linker anzuweisen, die \verb|math|-Bibliothek mit zu verlinken. Beispiel:
+\begin{center}
+\verb|gcc -Wall -pedantic -o zeta zeta.c mymath.c -lm|
+\end{center}
+Der \verb|-lm| Parameter muss als letztes übergeben werden, da es sich um einen Linker-Befehl handelt.
+
+\input{../a03-funktionen.zeta.ganzzahlig.tex}
+\input{../a04-module.quadratische.gleichung.tex}
+\input{../a05-arrays.sort.naiv.int.tex}
+
+\end{document}

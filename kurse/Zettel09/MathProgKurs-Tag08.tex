@@ -1,0 +1,106 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+\usepackage[pdftex]{hyperref}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\definecolor{linkcolor}{rgb}{0.5,0.08,0.08}
+\hypersetup{pdftex=true,colorlinks=true,breaklinks=true,linkcolor=linkcolor,menucolor=linkcolor,citecolor=linkcolor,filecolor=linkcolor,urlcolor=linkcolor,frenchlinks=false}
+
+\begin{document}
+\cohead{Tag 8}
+
+\noindent Siehe Rückseite für Algorithmen im Pseudocode.
+
+\begin{aufg} Implementiere Pollards $p-1$ Methode um die folgende Zahl zu faktorisieren. Du kannst dir von der \href{http://www.uni-bonn.de/~rattle/course/now}{Kurshomepage} diese und weitere Zahlen herunterladen, an denen du deinen Algorithmus testen kannst.
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+0x2D42080FCFBC71D2EA9A7BE2CCB954C8749C90CAB5547E2D2C17
+  23B5C9BBE302ED0405CCCBD4B7CDAF35F98B7094D420D77BDA9C
+  966BC3394783502595C9C86BB0DA603826C159F23D73057E4865
+  527B437418A0D83ABC5AE9DE0E30DB7A5FF6F420682E79E1CC01
+  45A09C4CDDDF7F73AEBA1D013226835AA7CDEC03D3D4B4181212
+  A5EAD2C1C6AC321B7DD93F93BF90B792FED921ACEF4304526218
+  171CED29428D7627F20085D95EF8260F84BD2CF4F46DE29BB7C2
+  19381F68F61A19CF3EE725C54E9531808912F635FD37EA50A5BD
+  9C33215B03219AA78981EEE9B46360B555250FF5A80615A4FD97
+  76A887BA17DE38E63005AC42EF8552334E36E909E5427
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Implementiere Lenstras EC-Faktorisierungsalgorithmus und faktorisiere zunächst die folgende Zahl. Auch diese ist auf der \href{http://www.uni-bonn.de/~rattle/course/now}{Kurshomepage} zum Download verfügbar.
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+0x591EE21000D2C0F86EBFCF0BA1D7D7B4BA6D1F3368D68684F719
+  A4BC4FB05FD57A3CA48539B9B705A5363EE670F4C8143EB21986
+  CFD46110AAC75389C0B6F10F25E9FFCA39CBC3E233F18D2E16D2
+  629CF72812DDE952AA975A7433715F71CBD790A0819F6D9BD836
+  0554253E59A20E1E546278A052EACBC6A5D18DE6E802ADE566D7
+  B6232B837CE6B67A2B8CDC9246556437EDFB18D34AEE3FD57318
+  040E42B20F6A56E0613FFB8BD824493203F9BFF5BFC115DCFFC3
+  BE946E193C86BD81ECF166C4E365A533428422FF285B469D300A
+  775711F345FCDBEF25661F6008C2D46DF281BB6C6391E8A107D7
+  11A2D0C2C1425A504E69BFBC3245A45F6EEE0D62D6C1B16677C6
+  2F4B6F01F368EA6B9014367F49A726143366EEE80DF6C1E1A5F3
+  C652761D9AE3E2D3E079D259BC2D868301EAD8D7B9F34C702449
+  5C8064D45D04B79DF2A8F7996DE4E7E672816CAF638AF70B39B6
+  1A677C5E9EEA41968DFF50757738EDC6047CAF5CF6A5281213C0
+  439B924E32C102D1F939EDCCD1143554386E610F6EC1B
+\end{lstlisting}
+\end{codelisting}
+Du kannst danach auch versuchen, die anderen Zahlen aus Aufgabe 1 zu faktorisieren.
+\end{aufg}
+
+\pagebreak[4]
+
+\begin{algorithm}[H]
+\caption{Pollards $p-1$ Algorithmus}
+\label{alg2}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Zahlen $a,n \in \mathbb{Z}_+$.
+\ENSURE Eine Zahl $d > 1$ mit $\exists m: \gcd(a^{m!}-1,n) = d$ 
+\FOR{$m = 2,3,4,\ldots$}
+	\STATE \SET $a := a^m \bmod n$
+	\STATE \SET $d := \gcd(a-1,n)$
+	\IF{$d \ne 1$}
+		\RETURN d
+	\ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Lenstras EC-Faktorisierungsalgorithmus}
+\label{alg2}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Zahl $n \in \mathbb{Z}_+$.
+\ENSURE Ein Teiler $d$ von $n$
+\STATE Wähle zufällige $x_0,y_0,a \in \mathbb{Z}_n$
+\STATE \SET $b := y_0^2 - x_0^3 - ax_0$
+\STATE Sei $E$ die Kurve zu den Parametern $a$ und $b$.
+\STATE \SET $p := (x_0,y_0) \in E$
+\FOR{$m = 2,3,4,\ldots$}
+	\STATE \SET $p := m \cdot p \pmod n$
+	\IF{Berechnung schlägt fehl}
+		\STATE Wir haben ein $x$ gefunden, welches kein Inverses modulo $n$ hat.
+		\STATE \SET $d := \gcd(x,n)$
+		\IF{$d < n$}
+			\RETURN $d$
+		\ELSIF{$d = n$}
+			\STATE Starte Algorithmus neu
+		\ENDIF
+	\ENDIF
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+
+\end{document}

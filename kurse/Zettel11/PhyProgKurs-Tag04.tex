@@ -1,0 +1,31 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 4}
+
+\begin{document}
+
+\begin{aufg}
+Implementiere die Signumsfunktion \verb|sgn(x)|, den Absolutbetrag \verb|betrag(x)|, \verb|cos(x)| und die Wurzelfunktion \verb|wurzel(x)| (mit dem Heron-Verfahren) als Funktionen.
+\end{aufg}
+
+\begin{aufg} Lege ein Modul \verb|mymath.c| / \verb|mymath.h| an, in dem du die bisher geschriebenen Funktionen auslagerst.
+\end{aufg}
+
+Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Andernfalls gibt es die funktion 
+
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+
+in der Systemheader \verb|<math.h>|. Im Skript findest du im Anhang eine vollständige Referenz einiger Systembibliotheken.
+
+\begin{aufg}
+Implementiere die Riemann'sche Zeta-Funktion für $s>1$: 
+\[ \zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} \]
+\emph{Warnung}: Diese Reihe konvergiert nicht für $s \le 1$.
+\end{aufg}
+
+\begin{aufg}
+Implementiere ein Programm, dass ein \verb|int|-Array sortiert. Die naheliegenste Möglichkeit besteht wohl darin, zuerst das kleinste Element an die erste Stelle zu tauschen, dann das kleinste unter den Verbleibenden an die zweite Stelle zu tauschen, usw.
+\end{aufg}
+
+\end{document}

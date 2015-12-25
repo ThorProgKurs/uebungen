@@ -1,0 +1,81 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 5}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+\begin{aufg} Werde mit dem letzten Zettel fertig und lege ein Modul mit dem Namen \verb|mymath.c| an, in dem du die bisher geschriebenen Funktionen auslagerst. Die Header-Datei \verb|mymath.h| sollte (mindestens) wie folgt aussehen:
+
+\medskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#ifndef _MYMATH__H
+#define _MYMATH__H
+
+double logarithm(double);
+double expo(double);
+double power(double,double);
+
+/* Ganzzahlige Potenzen mit Double&Add ausrechnen: */
+double int_power(double,int);
+
+double wurzel(double);
+double betrag(double);
+
+#endif
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Eine \verb|double|-Variable kann den symbolischen Wert $\infty$ (unendlich) haben. Es gibt auch $-\infty$. Für diesen Wert und $a\in\R$ gelten folgende Regeln:
+\begin{align*}
+a + \infty &= \infty &
+a \cdot \infty &= \infty &
+\infty+\infty &= \infty
+\end{align*}
+Der Wert $\infty-\infty$ ergibt den weiteren symbolischen Wert $\mathrm{NaN}$ (Not a Number). Wenn das Ergebnis einer Rechnung mit nicht-symbolischen \verb|double|-Werten den Wertebereich verlässt, so ist das Ergebnis $\pm\infty$. Schreibe eine Funktion, die den Wert $\infty$ berechnet und zurück gibt.
+\end{aufg}
+
+\newpage
+
+\begin{aufg} Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Andernfalls gibt es die funktion 
+
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+
+in der Systemheader \verb|<math.h>|. Im Skript findest du im Anhang  Referenzen einiger Systembibliotheken.
+Implementiere die Riemann'sche Zeta-Funktion für $s > 1$: 
+$$\zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} $$
+Für $s\le 1$ sollte die Funktion den Wert $\infty$ zurückliefern, siehe Aufgabe 2. 
+
+Erweitere dein \verb|mymath|-Modul um die Zeta-Funktion und
+schreibe ein Programm, das deren Werte für einige $s\in]1,3[$ ausgibt.
+
+\medskip \textbf{Hinweis:} Unter Linux muss man dem gcc noch den Linker-Befehl \verb|-lm| übergeben, um den Linker anzuweisen, die \verb|math|-Bibliothek mit zu verlinken. Beispiel:
+\begin{center}
+\verb|gcc -Wall -pedantic -o zeta zeta.c mymath.c -lm|
+\end{center}
+Der \verb|-lm| Parameter muss als letztes übergeben werden, da es sich um einen Linker-Befehl handelt.
+
+\end{aufg}
+
+\begin{aufg}
+Erweitere das mymath-Modul noch um eine Funktion, die zu den drei Koeffizienten $a, b, c \in \R$ einer quadratischen Gleichung $$
+a \cdot X^2 + b \cdot X + c = 0 $$
+die Lösungen berechnet und die größere Lösung zurück gibt.
+\end{aufg}
+
+
+\end{document}

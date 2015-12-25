@@ -1,0 +1,84 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 5}
+
+\begin{document}
+
+\begin{aufg}
+Schreibe ein Modul \verb|arrayhelpers|, das einige nützliche Funktion zum \verb|int|-Array-Handling enthält:
+\begin{enumerate}
+\item Array zeilenweise oder mit Kommata getrennt ausgeben
+\item Array sortieren
+\item Alle Felder eines Arrays mit einem Wert initialisieren
+\item Array um $1$ rotieren (d.h. das hinterste Element an erste Stelle schreiben und alle anderen Elemente um eins nach hinten schieben)
+\item Array um $k$ rotieren
+\item Array umdrehen
+\item Ein Array in einem anderen suchen und die Position zurück geben. Sollte das Array nicht im anderen enthalten sein, so soll der Rückgabewert $-1$ sein.
+
+\emph{Beispiel:} 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int A[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int B[3]  = {4, 5, 6};
+int C[2]  = {5, 7};
+int D[2]  = {9, 10};
+\end{lstlisting}
+\end{codelisting}
+Hier gilt: \verb|B| ist an $3$-ter Stelle in \verb|A| enthalten und \verb|D| an $8$-ter. Das 
+
+Array \verb|C| ist garnicht in \verb|A| enthalten, darum wird der Rückgabewert $-1$ sein.
+
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg} Wir sagen, ein Array der Länge $n$ ist eine \emph{Permutation}, wenn jede Zahl zwischen $1$ und $n$ an irgendeiner Stelle im Array vorkommt.
+\begin{enumerate}
+\item Schreibe eine Funktion, die prüft, ob ein Array eine Permutation ist.
+\item Schreibe eine Funktion, die ein Array \verb|a| und eine Permutation \verb|p| entgegennimmt und \verb|a| so umsortiert, dass das \verb|i|-te Element an die Stelle \verb|p[i]| geschrieben wird.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Schreibe eine Funktion zur Lösung einer quadratischen Gleichung $aX^2 + cX + b = 0$, welche beide Lösungen berechnet und mit Hilfe von Pointern zurückgibt.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}
+\item Implementiere eine c-Datei zu folgender Header-Datei: 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* gibt die Länge eines Strings zurück */
+int str_len(char *s); 
+
+/* gibt 0 zurück, wenn zwei strings gleich 
+ * sind und 1 sonst */
+int str_cmp(char *s1, char *s2);
+
+/* kopiert s nach d und gibt d zurück */
+char *str_cpy(char *d, char *s);
+
+/* hänge s2 and s1 an und gib s1 zurück */ 
+char *str_cat(char* s1, char* s2)
+
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere nun noch folgende String-Funktionen, die man in der Praxis \emph{niemals} benutzen würde:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* schreibt s rückwärts in s und gib es zurück */
+char *str_reverse(char *s);
+
+/* gibt 1 zurück, wenn ein String ein Palindrom 
+ * ist und 0 sonst */
+int str_ispalin(char *s);
+
+\end{lstlisting}
+\end{codelisting}
+\end{enumerate}
+\end{aufg}
+
+
+
+
+
+\end{document}

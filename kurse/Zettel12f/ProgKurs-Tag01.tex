@@ -1,0 +1,83 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 1}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\begin{aufg}
+Implementiere doppelt verkettete Listen, die beliebige Daten speichern können (als \verb|void *|). Die Liste soll zusätzlich einen Stack enthalten, auf dem gelöschte Elemente abgelegt werden, damit man sie wiederherstellen kann.
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfügen, NULL heißt am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, void *p);
+/* Element hinter E einfügen, dessen datenpointer
+   auf n Zellen allokierten Speicher zeigt. Sollte bei
+   Speichermangel einen Nullpointer liefern. */
+LISTNODE *list_insert_alloc(LIST *L, LISTNODE *E, 
+	unsigned int n);
+
+/* Element am Anfang bzw. Ende einfügen */
+LISTNODE *list_unshift(LIST *L, void *p);
+LISTNODE *list_push(LIST *L, void *p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurück geben */
+void *list_shift(LIST *L);
+void *list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfügen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+/* Das eben gelöschte Element wiederherstellen */
+void list_undelete(LIST *L);
+/* Alle gelöschten Elemente wiederherstellen */
+void list_dance(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg} Erstelle eine Liste, füge einige Strings in sie ein und sortiere die Liste lexikographisch.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}
+\item
+Implementiere die Addition, Multiplikation, Potenzen und Division komplexer Zahlen. Verwende dazu folgende Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef struct _COMPLEX {
+	double real;
+	double imag;
+} COMPLEX;
+
+COMPLEX cplx_add(COMPLEX a, COMPLEX b);
+COMPLEX cplx_mult(COMPLEX a, COMPLEX b);
+COMPLEX cplx_pot(COMPLEX a, unsigned long n);
+COMPLEX cplx_div(COMPLEX a, COMPLEX b);
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere die Addition, Multiplikation und Division sowie das Kürzen rationaler Zahlen. Schreibe dazu erst die Header-Datei.
+\end{enumerate}
+\end{aufg}
+\end{document}

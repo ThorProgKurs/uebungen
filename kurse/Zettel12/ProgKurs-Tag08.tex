@@ -1,0 +1,85 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 8}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+\begin{aufg}
+Gegeben sei eine Datei, in der ausschließlich Zahlen stehen. In der ersten Zeile stehe eine natürliche Zahl, die angibt wie viele Zahlen noch folgen. 
+\begin{enumerate}
+  \item Schreibe ein Programm, dass diese Datei einliest, die Zahlen sortiert und die Datei mit der sortierten Liste überschreibt. 
+  \item Modifiziere dein Programm nun so, dass in der ersten Zeile nicht mehr stehen muss, wie viele Zeilen noch folgen.
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg}
+Erstelle ein Programm \verb|uniq|, dass zwei Dateinamen als Argumente erhält, die erste Datei zweilenweise als Integer-Variable einliest und ohne doppelte Einträge in die zweite Datei schreibt (in irgendeiner Reihenfolge).
+\end{aufg}
+
+
+
+\begin{aufg}
+Implementiere folgende Funktion, die zu einem gegebenen String einen längsten Teilstring findet, der ein Palindrom\footnote{Ein Palindrom ist ein String, der rückwärts gelesen das gleiche ergibt wie vorwärts. Ein Beispiel wäre ``anna''.} ist. Speichere diesen Teilstring wieder in s und gib s zurück.
+
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Beschreibung, selber machen */
+char *str_glsp(char *s);
+\end{lstlisting}
+\end{codelisting}
+
+\medskip Das Problem ist in polynomieller Laufzeit lösbar und auf die Idee kann man auch kommen. 
+\end{aufg}
+
+\newpage
+
+\begin{aufg} Implementiere die folgenden Funktionen:
+
+\medskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* pieces ist ein Array der Länge len (von Strings).
+   Hänge diese Strings, getrennt durch sep, aneinander 
+   und liefere das Ergebnis. Beispiel:
+
+   char *p[3] = { "Ene", "Mene", "Miste" };
+   char *joined = str_join( p, 3, ", ");
+   printf("%s", joined); 
+   free(joined);
+
+   gibt aus: Ene, Mene, Miste */
+char  *str_join(char **pieces, int len, char *sep);
+
+/* Spalte str bei jedem Auftreten von sep auf und 
+   liefere das Array der entstehenden Strings.
+   Wäre etwa str der String "Ene, Mene, Miste" und
+   sep der String "," so sollte das zurückgegebene
+   Array die Strings
+
+     "Ene"
+     " Mene"
+     " Miste"
+   
+  enthalten (Man bemerke die Leerzeichen). In len
+  wird die Länge des Arrays gespeichert, in diesem
+  Fall 3. Der String str selbst sollte von der 
+  Funktion natürlich nicht verändert werden. */
+char **str_split(char *str, char *sep, int *len);
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+
+
+\end{document}

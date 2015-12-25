@@ -1,0 +1,38 @@
+\documentclass{uebungszettel}
+
+\newcommand{\utitle}{Tag 2}
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\begin{aufg}
+
+Schreibe ein Programm, dass den Wert der folgenden Funktion ausgibt (für eine fest in den Quellcode geschriebene \verb|int|-Variable):
+\[
+	f(n) = \left\{ \begin{array}{ll}
+	\frac{n}{2} & \text{wenn } n \text{ gerade} \\
+	\frac{n+1}{2} & \text{wenn } n \text{ ungerade} \\
+	\end{array}
+	\right.
+\]
+Und das geht natürlich nur mit Wissen aus der Vorlesung.
+\end{aufg}
+
+Lies dir als nächstes im Skript durch, wie Schleifen funktionieren (Abschnitt 2.8) und implementiere die Algorithmen vom ersten Tag in C:
+
+\begin{aufg} .
+\begin{enumerate}
+\item Implementiere den Primzahltest von gestern.
+\item Schreibe ein Programm, dass jeweils die nächste Primzahl nach $20000$, $30000$ und $40000$ findet.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Für $a \in \mathbb{R}^+$ konvergiert die Folge $(a_n)$ mit $a_0 = a$ und
+\[ a_{n+1} = \frac{1}{2}\left(a_n + \frac{a}{a_n}\right) \]
+gegen $\sqrt{a}$. Implementiere damit einen Wurzellalgorithmus.
+\end{aufg}
+
+\begin{aufg}
+Implementiere den Algorithmus von gestern aus Teil c), welcher den größten gemeinsamen Teiler zweier Zahlen berechnet.
+\end{aufg}
+
+\end{document}

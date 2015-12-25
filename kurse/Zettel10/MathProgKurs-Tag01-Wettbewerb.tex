@@ -1,0 +1,52 @@
+\documentclass{uebungszettel}
+
+\newcommand{\utitle}{Tag 1}
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+\begin{aufg}
+Installiere einen Compiler auf deinem Computer und kompiliere ein Hallo-Welt-Programm. Informationen dazu findest du im Skript auf der Webseite des Kurse:
+\begin{center}
+	\verb|http://www.ah-effect.net/ |
+\end{center}
+Du findest dort auch einen Download-Link für Cygwin.
+\end{aufg}
+
+\begin{aufg}
+Was machen folgende Algorithmen (kein C-Code)?
+\begin{enumerate}
+	\item 
+		\emph{Eingabe: } $c \in \mathbb{N}$ \\
+		\emph{Ausgabe: } \verb*|Ja| oder \verb|Nein|
+		\begin{enumerate}
+  		\item Sei $n = 2$
+  		\item solange $n \leq \sqrt{c}$ 
+  		\item \hspace{1em} falls $c$ durch $n$ teilbar, gebe \verb|Nein| aus und terminiere
+  		\item \hspace{1em} vergrößere $n$ um $1$
+  		\item gebe \verb|Ja| aus und terminiere
+		\end{enumerate}
+	\item
+		\emph{Eingabe: } $a \in \mathbb{R}^+_0$ \\
+		\emph{Ausgabe: } $x \in \mathbb{R}$
+		\begin{enumerate}
+  		\item Sei $x = 2$ und $y = 1$
+  		\item solange $\left|x - y\right| \geq 10^{-10}$
+  		\item \hspace{1em} Setze $x = y$
+  		\item \hspace{1em} Setze $y = \frac{1}{2}\left(x + \frac{a}{x}\right)$
+  		\item gebe $x$ aus und terminiere
+		\end{enumerate}
+	\item 
+		\emph{Eingabe: } $a, b \in \mathbb{N}$ \\
+		\emph{Ausgabe: } $k \in \mathbb{N}$
+		\begin{enumerate}
+  		\item wenn $a = 0$ dann gebe $b$ aus und terminiere
+  		\item sonst 
+  		\item \hspace{1em} solange $b \neq 0$
+  		\item \hspace{1em} \hspace{1em} wenn $a > b$ setze $a = a - b$
+  		\item \hspace{1em} \hspace{1em} sonst setze $b = b - a$
+  		\item gebe $a$ aus und terminiere
+		\end{enumerate}
+\end{enumerate}
+\end{aufg}
+
+\end{document}

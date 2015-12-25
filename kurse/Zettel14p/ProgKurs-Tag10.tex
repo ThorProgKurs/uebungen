@@ -1,0 +1,85 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+\begin{aufg} Installiere GMP und kompiliere folgendes Beispielprogramm 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Gebe einige Zufallszahlen aus. Anwendungsbeispiel
+   fuer die Verwendung der GMP. */
+
+#include <stdio.h>
+#include <gmp.h>
+#include <time.h>
+
+int main() {
+  mpz_t a,r;
+  int i; 
+
+  /* Zustand des Zufallszahlengenerators: */
+  gmp_randstate_t state; 
+
+  /* Initialisiere den Zufallszahlengenerator */
+  gmp_randinit_default(state);
+  gmp_randseed_ui(state, time(NULL));
+
+  mpz_init(a); 
+  mpz_init(r);
+  mpz_set_str(a,"856490000",10);
+
+  for (i=0; i<20; i++) {
+    mpz_urandomm(r,state,a);
+    mpz_out_str(stdout,10,r);
+    putchar('\n');
+  }
+
+  mpz_clear(r);
+  mpz_clear(a);
+  return 0;
+}
+\end{lstlisting}
+\end{codelisting}
+oder ein ähnliches (in Eclipse).
+\end{aufg}
+
+\pagebreak[4]
+
+\begin{aufg}
+\begin{enumerate}
+\item Implementiere den naiven Faktorisierungsalgorithmus vom ersten Tag mit GMP und faktorisiere die Zahl
+\begin{center}
+\verb|272963285971849714829857456457|
+\end{center}
+\item Verwende OpenMP um deinen Primzahlalgorithmus zu parallelisieren.
+\item Implementiere den
+\begin{algorithm}[H]
+\caption{Miller--Rabin Test}
+\label{alg2}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Zahlen $a,n \in \mathbb{N}$ mit $a < n$.
+\ENSURE ``Ja'', falls $a$ Zeuge für $n$, andernfalls ``Nein''.
+\IF{$n$ gerade oder $\mathrm{ggT}(a,n) \ne 1$}
+  \RETURN ``Ja''
+\ENDIF
+\STATE Schreibe $n - 1 = 2^k \cdot q$ mit $q$ ungerade.
+\STATE \SET $a := a^q \bmod n$
+\IF{$a \equiv 1 \pmod n$} 
+  \RETURN ``Nein''
+\ENDIF
+\FOR{$i=1$ \TO $k$}
+  \IF{$a \equiv -1 \pmod n$}
+    \RETURN ``Nein''
+  \ELSE
+    \STATE \SET $a := a^2 \bmod n$
+  \ENDIF
+\ENDFOR
+\RETURN ``Ja''
+\end{algorithmic}
+\end{algorithm}
+
+\noindent und verwende ihn, um eine Funktion zu schreiben, die zu einer gegebenen Bitlänge $n$ eine Primzahl mit mindestens $n$ Bits findet. 
+\item* Schreibe ein Modul, welches RSA--Verschlüsselung von beliebigen Arrays ermöglicht. Es ist dir überlassen, ob du zum Finden der Primzahlen deine eigene Funktion oder die Funktionen der GMP verwendest.
+\end{enumerate}
+\end{aufg}
+
+\end{document}

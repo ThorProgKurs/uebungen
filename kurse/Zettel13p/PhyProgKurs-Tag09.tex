@@ -1,0 +1,95 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 9}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\newcommand{\power}{\mathrm{power}}
+
+
+
+
+\begin{aufg}
+~\begin{enumerate}
+\item
+Implementiere die Addition, Multiplikation, Potenzen und Division komplexer Zahlen. Verwende dazu folgende Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#ifndef _COMPLEX__H
+#define _COMPLEX__H
+
+typedef struct _COMPLEX {
+	double real;
+	double imag;
+} COMPLEX;
+
+COMPLEX cplx_add(COMPLEX a, COMPLEX b);
+COMPLEX cplx_mul(COMPLEX a, COMPLEX b);
+COMPLEX cplx_pow(COMPLEX a, unsigned long n);
+COMPLEX cplx_div(COMPLEX a, COMPLEX b);
+
+#endif
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere die Addition, Multiplikation und Division sowie das Kürzen rationaler Zahlen. Schreibe dazu erst die Header-Datei.
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg}
+Eine von den beiden Aufgaben vom letzten Zettel fertig machen. Aber dann schon die Listen machen.
+\end{aufg}
+
+\vfil
+\begin{center}\bf FLIP ME\end{center}
+\vfil\newpage
+
+\begin{aufg} Lese noch einmal im Skript die Sektion 7.5 und implementiere doppelt verkettete Listen, die \verb|double|-Variablen speichern.
+
+\medskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Definiere hier angemessene Strukturen für einen
+   einzelnen Listeneintrag und die Liste selbst. */
+
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfügen, NULL heißt am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, double p);
+
+/* Element am Anfang bzw. Ende einfügen */
+LISTNODE *list_unshift(LIST *L, double p);
+LISTNODE *list_push(LIST *L, double p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurück geben */
+double list_shift(LIST *L);
+double list_pop(LIST *L);
+
+/* eine Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfügen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+
+
+\end{document}

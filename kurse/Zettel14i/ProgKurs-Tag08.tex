@@ -1,0 +1,62 @@
+\documentclass{uebungszettel}
+\begin{document}
+\begin{aufg}
+Denke dir einen sinnvollen Namen aus für ein Modul, dass Vektorrechnung auf $\R^n$ implementiert. Vektoren sollen \verb|double|-Arrays mit der Länge $n$ sein. Implementiere die nachfolgenden Funktionen:
+\begin{enumerate}
+	\item eine Funktion, die genügend Speicher für einen Vektor reserviert und einen Pointer darauf zurück gibt
+	\item Vektoraddition
+	\item Vektorsubtraktion
+	\item Produkt eines Vektors mit einer skalaren Größe
+	\item Skalarprodukt zweier Vektoren
+	\item Kreuzprodukt zweier Vektoren (falls existent)
+	\item eine Funktion, die prüft, ob zwei Vektoren orthogonal zueinander stehen
+	\item eine Funktion, die prüft, ob zwei Vektoren parallel zueinander sind
+	\item eine Funktion, die einen Vektor auf der Konsole aus gibt
+\end{enumerate}
+Der Rückgabetyp der Funktionen soll \verb|void| sein und das letzte Argument soll ein Vektor sein in dem das Ergebnis gespeichert wird. Zur Verdeutlichung hier ein Beispiel einer Funktion, die einen Vektor aufnimmt und ihn mit dem Nullvektor initialisiert:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+void make0(double *a, int n) { 
+	int i;
+	for(i=0; i<n; i++) a[i] = 0;
+}
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg}
+Brainfuck ist eine sogenannte esoterische Programmiersprache, das sind Sprachen, die meist zu wissenschaftlichen oder theoretischen Zwecken, oder einfach zum Spaß entwickelt wurden. 
+
+Brainfuck besteht nur aus $8$ Befehlen: $>$ $<$ $+$ $-$ $,$ $.$ $[$ $]$ alle anderen Zeichen werden als Kommentar interpretiert. Diese Befehle werden, wie bei C auch, nacheinander ausgeführt. Sie operieren auf einem (potentiell unendlich langen) Band (welches aus Zellen besteht in denen jeweils ein \verb|char| steht) indem sie einen Lese-/Schreibkopf über das Band bewegen und Zeichen lesen / schreiben lassen. Das Band ist überall mit \verb|'\0'| vorinitialisiert und der Lese-/Schreibkopf startet an ``Position $0$'' des Bandes. Die Befehle haben folgendee Bedeutung:
+
+\begin{tabular}{|c|p{10cm}|} \hline
+$>$ bzw. $<$ & schiebt den Lese-/Schreibkopf eins nach rechts bzw. links \\\hline
+$+$ bzw. $-$ & in- bzw. dekrementiert den Bandwert unter dem Lese-/Schreibkopf um $1$ \\\hline
+$.$ & gibt den Wert unter dem Lese-/Schreibkopf aus \\\hline
+$,$ & liest ein Zeichen vom Benutzer ein und schreibt es unter den Lese-/Schreibkopf \\\hline
+$[$ & springt zum zugehörigen $]$-Befehl, wenn der Wert unter dem Lese-/Schreibkopf $0$ ist, sonst soll nichts passieren\\\hline
+$]$ & springt zum zugehörigen $[$-Befehl, wenn der Wert unter dem Lese-/Schreibkopf verschieden von $0$ ist\\\hline
+\end{tabular}
+
+So sieht ein ``Hallo-Welt''-Programm in Brainfuck aus:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,mathescape=true]
+++++++++++
+[
+   >+++++++>++++++++++>+++>+<<<<-
+]
+>++.
+>+.
++++++++..
++++.>++.
+<<+++++++++++++++.
+>.+++.
+------.--------.
+>+.>.
+\end{lstlisting}
+\end{codelisting}
+Deine Aufgabe ist es nun, ein Programm zu schreiben, welches Brainfuck-Programme einlesen und ausführen kann. 
+\end{aufg}
+
+\end{document}

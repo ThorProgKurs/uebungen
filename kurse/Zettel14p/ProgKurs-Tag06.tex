@@ -1,0 +1,61 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+\begin{aufg}
+Schreibe ein Modul \verb|arrayhelpers|, das einige nützliche Funktion zum Umgang mit dynamischen \verb|int|-Arrays enthält:
+\begin{enumerate}
+\item Array zeilenweise oder mit Kommata getrennt ausgeben
+\item Array sortieren
+\item Alle Felder eines Arrays mit einem Wert initialisieren
+\item Array um $1$ rotieren (d.h. das hinterste Element an erste Stelle schreiben und alle anderen Elemente um eins nach hinten schieben)
+\item Array um $k$ rotieren 
+\item Array umdrehen
+\item Ein Array in einem anderen suchen und die Position zurück geben. Sollte das Array nicht im anderen enthalten sein, so soll der Rückgabewert $-1$ sein.
+
+\emph{Beispiel:} 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int A[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int B[3] = {4, 5, 6}
+int C[2] = {5, 7}
+int D[2] = {9, 10}
+\end{lstlisting}
+\end{codelisting}
+Hier gilt: \verb|B| ist an $3$-ter Stelle in \verb|A| enthalten und \verb|D| an $8$-ter. Das Array \verb|C| ist garnicht in \verb|A| enthalten, darum wird der Rückgabewert $-1$ sein.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg} Implementiere einige Funktionen um mit quadratischen Matrizen umzugehen:
+\begin{enumerate}
+\item Eine Funktion, die Speicher für eine quadratische Matrix allokiert, eine um ihn freizugeben, eine um sie auszugeben und eine um sie zur Einheitsmatrix zu initialisieren (das ist die Matrix mit $1$en auf der Hauptdiagonale und $0$en sonst):
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double **matrix_alloc(int n);
+void     matrix_free(double **A, int n);
+void     matrix_print(double **A, int n);
+double **matrix_id(double **A, int n);
+\end{lstlisting}
+\end{codelisting}
+\item Eine Funktion um eine Matrix zu transponieren (d.h. an der Hauptdiagonale ``zu spiegeln'')
+\item Eine Funktion, die zwei solche Matrizen miteinander multipliziert und eine neue Matrix zurück gibt. Für zwei $n \times n$-Matrizen $A = (a_{ij})$ und $B = (b_{ij})$ ist $A \cdot B = C = (c_{ij})$ durch $c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}$ definiert.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Diese Aufgabe läuft auf die Implementierung des Merge-Sort Algorithmus hinaus.
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|merge|, die zwei bereits sortierte (eventuell verschieden große) Arrays als Argumente erhält, diese zu einem sortieren Array kombiniert und dieses zurück liefert. 
+\item Die Funktion \verb|mergesort| selbst soll ein Array in zwei (möglichst gleich große) Teilarrays zerlegen, sich für diese Teilarrays selbst aufrufen und danach die dann sortierten Teilarrays mit der \verb|merge|-Funktion kombinieren. Erhält die Funktion ein Array mit keinem oder einem Element so belässt es dieses Array wie es ist, dann ist es nämlich bereits sortiert.
+\end{enumerate}
+
+Hier als Tipp ein Vorschlag für die Signaturen der beiden Funktionen:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int *merge(int *list1, int n, int *list2, int m);
+void mergesort(int *list, int n);
+\end{lstlisting}
+\end{codelisting}
+
+\end{aufg}
+
+\end{document}

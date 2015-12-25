@@ -1,0 +1,60 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 6}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+
+\begin{aufg}
+Implementiere eine Funktion, die den Wert zweier \verb|int|-Variablen vertauscht.
+\end{aufg}
+
+
+\begin{aufg}
+Erweitere die Funktion zur Lösung einer quadratischen Gleichung von gestern: Es soll möglich sein beide Lösungen weiter zu verwenden.
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Modul \verb|arrayhelpers|, das einige nützliche Funktion zum \verb|int|-Array-Handling enthält:
+\begin{enumerate}
+\item Array zeilenweise oder mit Kommata getrennt ausgeben
+\item Array sortieren
+\item Alle Felder eines Arrays auf einen einzelnen Wert setzen
+\item Array um $1$ rotieren (d.h. das hinterste Element an erste Stelle schreiben und alle anderen Elemente um eins nach hinten schieben)
+\item Array um $k$ rotieren
+\item Array umdrehen
+\item Ein Array in einem anderen suchen und die Position zurückgeben. Ist das Array nicht im anderen enthalten, so soll der Rückgabewert $-1$ sein.
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int A[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int B[3] = {4, 5, 6}
+int C[2] = {5, 7}
+int D[2] = {9, 10}
+\end{lstlisting}
+\end{codelisting}
+\verb|B| ist an $3$-ter Stelle in \verb|A| enthalten und \verb|D| an $8$-ter. Das Array \verb|C| ist garnicht in \verb|A| enthalten, darum wird der Rückgabewert $-1$ sein.
+
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg} ~
+\begin{enumerate}
+\item Schreibe eine Funktion, die prüft, ob ein Array eine Permutation ist. Ein Array mit $n$ Elementen ist eine Permutation, wenn es die Zahlen von $0$ bis $n-1$ jeweils einmal enthält.
+\item Schreibe eine Funktion, die ein beliebiges \verb|int|-Array und ein Permutationsarray entgegennimmt und das Array entsprechend permutiert. Das heißt: Wenn \verb|a| ein Array und \verb|p| ein Permutationsarray ist, dann soll nach Aufruf der Funktion \verb|a[i]| an die Stelle \verb|a[p[i]]| geschrieben worden sein.
+\end{enumerate}
+\end{aufg}
+
+\end{document}

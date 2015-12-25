@@ -1,0 +1,67 @@
+\documentclass{uebungszettel}
+
+\begin{document} 
+\fontfamily{arial}\selectfont
+\cohead{Tag 5 - Übung 1}
+
+\begin{aufg}
+Gegeben sei eine Datei, in der ausschließlich Zahlen stehen. In der ersten Zeile stehe eine natürliche Zahl, die angibt wie viele Zahlen noch folgen. 
+\begin{enumerate}
+\item Schreibe ein Programm, dass diese Datei einliest, die Zahlen sortiert und die Datei mit der sortierten Liste überschreibt. 
+\item Modifiziere dein Programm nun so, dass in der ersten Zeile nicht mehr stehen muss wie viele Zeilen noch folgen.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Programm, dass ein Labyrinth aus einer Datei einliest:
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX X
+X X XX XXX XXX X
+X   XX XXX XXX X
+XXX X   XX XXX X
+XXX   X        X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+\emph{Bemerkung: } Wir spezifizieren das Labyrinth hier nicht viel näher, entscheide dich selbst vorher was für ein Format die Datei haben soll und welche Einschränkungen du daran stellst: Soll die Größe des Labyrinths variabel sein oder fest? Soll die Größe in der ersten Zeile der Datei stehen oder nicht? Soll das Labyrinth quadratisch sein oder nicht? Soll es außen herum immer mit $X$en begrenzt sein oder hast du vielleicht eine andere Lösung?\\
+Das Programm soll einen Weg vom Startpunkt (dem Stern, dem Geburtsort) zum Dollar (dem Schatz) finden. Die $X$e sind Wände und Leerzeichen sind Pfade. Markiere einen Weg mit Punkten und gebe das Labyrinth mit Weg in der Konsole aus.
+
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX.X
+X.X XX XXX XXX.X
+X...XX XXX XXX.X
+XXX.X...XX XXX.X
+XXX...X........X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+\end{aufg}
+
+
+\begin{aufg} *
+Diese Aufgabe läuft auf die Implementierung des Merge-Sort Algorithmus hinaus.
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|merge|, die zwei bereits sortierte (eventuell verschieden große) Arrays als Argumente erhält, diese zu einem sortieren Array kombiniert und dieses zurück liefert. 
+\item Die Funktion \verb|mergesort| selbst soll ein Array in zwei (möglichst gleich große) Teilarrays zerlegen, sich für diese Teilarrays selbst aufrufen und danach die dann sortierten Teilarrays mit der \verb|merge|-Funktion kombinieren. Erhält die Funktion ein Array mit keinem oder einem Element so belässt es dieses Array wie es ist, dann ist es nämlich bereits sortiert.
+\item Besorge dir die Datei \verb|daten.h|, sortiere das darin definierte Array und schreibe es sortiert in eine Datei.
+\end{enumerate}
+
+Hier als Tipp ein Vorschlag für die Signaturen der beiden Funktionen:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int *merge(int *list1, int n, int *list2, int m);
+void mergesort(int *list, int n);
+\end{lstlisting}
+\end{codelisting}
+
+\end{aufg}
+
+\end{document}

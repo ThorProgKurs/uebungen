@@ -1,0 +1,66 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 7}
+
+\begin{document}
+
+\begin{aufg}
+Gegeben sei eine Datei, in der ausschließlich Zahlen stehen. In der ersten Zeile stehe eine natürliche Zahl, die angibt wie viele Zahlen noch folgen. 
+\begin{enumerate}
+  \item Schreibe ein Programm, dass diese Datei einliest, die Zahlen sortiert und die Datei mit der sortierten Liste überschreibt. 
+  \item Modifiziere dein Programm nun so, dass in der ersten Zeile nicht mehr stehen muss, wie viele Zeilen noch folgen.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Erstelle ein Programm \verb|uniq|, dass zwei Dateinamen als Argumente erhält, die erste Datei wortweise\footnote{Worte sind alles, was durch Whitepsace (Leerzeichen, Zeilenumbrüche und Tabulatoren) getrennt ist.} einliest und ohne doppelte Einträge in die zweite Datei schreibt. Es soll auch möglich sein, dass Ein-- und Ausgabedatei die gleiche sind.
+\end{aufg}
+
+\begin{aufg} 
+Werde mit den Aufgaben von den vorherigen Zetteln fertig.
+\end{aufg}
+
+\begin{aufg} Lies im Skript noch den Rest vom Kapitel über Dateieingabe und -ausgabe, einige nützliche Funktionen wirst du dort noch finden. Schreibe dann ein Programm, dass ein Labyrinth aus einer Datei einliest:
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX X
+X X XX XXX XXX X
+X   XX XXX XXX X
+XXX X   XX XXX X
+XXX   X        X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+\emph{Bemerkung: } Wir spezifizieren das Labyrinth hier nicht viel näher, entscheide dich selbst vorher für ein Format. Soll die Größe des Labyrinths variabel sein oder fest? Soll die Größe in der ersten Zeile der Datei stehen oder nicht? Soll das Labyrinth quadratisch sein oder nicht? Soll es außen herum immer mit $X$en begrenzt sein oder hast du vielleicht eine andere Lösung?
+
+\vfill
+\begin{center}
+Flip me.
+\end{center}
+\vfill
+
+\newpage
+
+\vspace{1.5ex} Das Programm soll einen Weg vom Startpunkt (dem Stern) zum Schatz (dem Dollarzeichen) finden. Die $X$e sind Wände und Leerzeichen sind Pfade. Markiere einen Weg mit Punkten und gebe das Labyrinth mit Weg in der Konsole aus.
+
+{\tt
+\lstset{language=Delphi}
+\begin{lstlisting}
+XXXXXXXXXXXXXXXX
+X X XXXXXXXXXX*X
+X$X XX     XXX.X
+X.X XX XXX XXX.X
+X...XX XXX XXX.X
+XXX.X...XX XXX.X
+XXX...X........X
+XXXXXXXXXXXXXXXX
+\end{lstlisting}
+}
+
+\end{aufg}
+
+
+
+\end{document}

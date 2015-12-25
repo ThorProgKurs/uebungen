@@ -1,0 +1,62 @@
+\documentclass{uebungszettel}
+\newcommand{\utitle}{Tag 4}
+
+\begin{document}
+
+\begin{aufg} \ 
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|presentation(n, r)| in einem eigenen Modul, die zu einer natürlichen Zahl (im Zehnersystem) $n$ und einer Basis $0 < r < 10$ mit nachfolgendem Algorithmus die Darstellung von $n$ in der Basis $r$ ausgibt: Dividiere durch r, merke dir den Rest, den die Zahl bei der Division lässt. Verfahre mit dem Ergebniss der Division (abgerundet) so weiter. Die Reste geben die Zahl in der neuen Basis. Hier ein Beispiel, wie der Algorithmus für die 99 in der Basis 8 aussehen soll: 
+\begin{eqnarray*}
+99 & = & 12 \cdot 8 + 3 \\
+12 & = & 1 \cdot 8 + 4 \\
+1 & = & 0 \cdot 8 +1
+\end{eqnarray*}
+Die Darstellung von 99 zur Basis 8 ist also 341 (oder "`richtig"' 143). Lagere die Funktion in ein eigenes Modul aus!
+\item Was macht dieser Programmschnipsel? Warum? \\
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+for(; n != 0; n /= r) {
+	printf("%i\n",n%r);
+}
+\end{lstlisting}
+\end{codelisting}
+\item{*} Implementiere \verb|presentation2(n, r)| rekursiv s.d. die Ziffern in richtiger (umgekehrter) Reihenfolge ausgegeben werden. Implementiere diese Funktion im gleichen Modul wie \verb|presentation(n, r)|!
+\end{enumerate}
+\end{aufg}
+
+
+\begin{aufg} Lege ein Modul \verb|mymath.c| / \verb|mymath.h| an, in dem du die bisher geschriebenen Funktionen auslagerst. Erweitere das Modul um die Funktion \verb|sgn(x)| und den Absolutbetrag \verb|betrag(x)|.
+\end{aufg}
+
+Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Andernfalls gibt es die funktion 
+
+\begin{verbatim}
+double pow(double x, double y);
+\end{verbatim}
+
+in der Systemheader \verb|<math.h>|. Im Skript findest du im Anhang eine vollständige Referenz einiger Systembibliotheken.
+
+\begin{aufg}
+Implementiere die Riemann-Zeta-Funktion für $s\in\mathbb{R}$ und $s>1$: 
+\[ \zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} \]
+und füge sie zu deinem \verb|mymath|-Modul hinzu.
+
+\noindent\emph{Warnung}: Diese Reihe konvergiert nicht für $s \le 1$.
+\end{aufg}
+
+\begin{aufg} \ 
+\begin{enumerate}
+\item Vielleicht kennt ihr das Cantor'sche Diagonalverfahren, man verwendet es beispielsweise um zu zeigen, dass $\N$ und $\Q$ gleichmächtig sind. Eine Funktion $\pi: \N^2 \rightarrow \N$, die einem Pärchen natürlicher Zahlen ihre Nummer auf dem "`Weg"' durch das Diagonalschema zuordnet ist gegeben durch: \[
+	\pi(x, y) = \frac{(x+y) \cdot (x+y+1)}{2} + y \]
+Implementiere die Funktion $\pi$ in einem eigenen Modul "`CantorDiag"'.
+\item Es lässt sich zeigen, dass diese Funktion invertierbar ist. Die Werte der Inversen $\pi^{-1}: \N \rightarrow \N^2$ lassen sich mit folgender Methode berechnen: Zu einem $z = \pi(x, y)$ erhält man $x$ und $y$ zurück mit \[
+w = \left\lfloor \frac{\sqrt{8\cdot z + 1}-1}{2} \right\rfloor;
+t = \frac{w^2 + w}{2};
+y = z - t;
+x = w -y \]
+Zeige: $\forall z \in \N \cap [0, 1000]: \pi\left(\pi^{-1}\left(z\right)\right) = z$.
+\end{enumerate}
+\end{aufg}
+
+
+\end{document}

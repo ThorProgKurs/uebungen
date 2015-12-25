@@ -1,0 +1,43 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 7}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+\newcommand{\power}{\mathrm{power}}
+
+\begin{aufg}
+Gegeben sei eine Datei, in der ausschließlich Zahlen stehen. In der ersten Zeile stehe eine natürliche Zahl, die angibt, wie viele Zeilen noch folgen. Die noch folgenden Zeilen bestehen ebenfalls nur aus einer Zahl. 
+\begin{enumerate}
+\item Schreibe ein Programm, dass diese Datei einliest, die Zahlen sortiert und die Datei mit der sortierten Liste überswchreibt.
+\item Modifiziere dein Programm nun so, dass in der ersten Zeile nicht mehr stehen muss, wie viele Zeilen noch folgen.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Programm, welches eineDatei im folgenden Format ausliest:
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,mathescape=true]
+sin(0.4) = 0.389
+sin(0.45) = 0.43496
+sin(0.6) = 0.5346
+\end{lstlisting}
+\end{codelisting}
+Wenn eine Zeile einen Fehler enthält, der größer als $10^{-3}$ ist, so soll dieser Fehler mit Zeilennummer auf der Konsole ausgegeben werden.
+\end{aufg}
+
+\begin{aufg} Erweitere dein Matrizen-Modul um eine Funktion, die Matrizen aus einer Datei lesen kann. Ein Format für diese Dateien darfst du dir selbst ausdenken.
+\end{aufg}
+
+\end{document}

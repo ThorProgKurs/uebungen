@@ -1,0 +1,61 @@
+\documentclass{uebungszettel}
+
+\begin{document} 
+\fontfamily{arial}\selectfont
+\cohead{Tag 4 - Übung 2}
+
+\begin{aufg}
+\begin{enumerate}
+\item Implementiere eine c-Datei zu folgender Header-Datei: 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* gibt die Länge eines Strings zurück */
+int str_len(char *s); 
+
+/* gibt 0 zurück, wenn zwei strings gleich 
+ * sind und 1 sonst */
+int str_cmp(char *s1, char *s2);
+
+/* kopiert s nach d und gibt d zurück */
+char *str_cpy(char *d, char *s);
+
+/* hänge s2 and s1 an und gib s1 zurück */ 
+char *str_cat(char* s1, char* s2)
+
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere nun noch folgende String-Funktionen, die man in der Praxis \emph{niemals} benutzen würde:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* schreibt s rückwärts in s und gib es zurück */
+char *str_reverse(char *s);
+
+/* gibt 1 zurück, wenn ein String ein Palindrom 
+ * ist und 0 sonst */
+int str_ispalin(char *s);
+
+/* hänge s2 an s1 an und stelle sicher, dass 
+ * in s1 genug Speicher zur verfügung steht */
+char *str_smartcat(char *s1, char *s2)
+
+/* verkleinert den Speicher auf den s zeigt
+ * auf die Länge von s */
+char *str_compress(char *s);
+\end{lstlisting}
+\end{codelisting}
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Implementiere folgende Funktion (ins gleiche Modul), die zu einem gegebenen String einen längsten Teilstring findet, der ein Palindrom ist. Speichere diesen Teilstring wieder in s und gib s zurück.
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Beschreibung, selber machen */
+char *str_glsp(char *s);
+\end{lstlisting}
+\end{codelisting}
+Das Problem ist in polynomieller Laufzeit lösbar und auf die Idee kann man auch kommen. 
+\end{aufg}
+
+
+\end{document}

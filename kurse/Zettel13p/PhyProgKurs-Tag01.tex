@@ -1,0 +1,104 @@
+\documentclass{uebungszettel}
+\usepackage{algorithm,algorithmic}
+
+\floatname{algorithm}{Algorithmus}
+\newcommand{\SET}{\textbf{set}\ }
+\newcommand{\CHOOSE}{\textbf{choose}\ }
+\newcommand{\GOTO}{\textbf{goto}\ }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\listalgorithmname}{Algorithms}
+\renewcommand{\algorithmiccomment}[1]{\\/* #1 */}
+
+\newcommand{\utitle}{Tag 1}
+
+\begin{document}
+\newcommand{\ah}[2]{\ \\* \emph{(#1, #2)}\\}
+
+\begin{aufg}
+Installiere einen Compiler auf deinem Computer und kompiliere ein Hallo-Welt-Programm. Informationen dazu und einen Download-Link für Cygwin findest du im Skript auf der Webseite des Kurses:
+\begin{center}
+	\verb|http://www.ah-effect.net/ |
+\end{center}
+\end{aufg}
+
+\begin{aufg}
+Was machen folgende Algorithmen (kein C-Code)?
+
+\begin{algorithm}[H]
+\caption{}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Ganze Zahl $c\in\mathbb{N}$
+\ENSURE Entweder \verb|Ja| oder \verb|Nein|.
+\STATE \SET $n := 2$.
+\IF{$n>\sqrt{c}$} \label{1Start}
+\RETURN \verb|Ja|
+\ENDIF
+\IF{$n$ teilt $c$}
+\RETURN \verb|Nein|
+\ENDIF
+\STATE \SET $n := n + 1$
+\STATE \GOTO \ref{1Start}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Ganze Zahlen $a,b\in\mathbb{N}$
+\ENSURE Eine ganze Zahl $k\in\mathbb{N}$
+\IF{$a=0$} 
+\RETURN $b$
+\ENDIF
+\IF{$b=0$} \label{3Start}
+\RETURN $a$
+\ENDIF
+\IF{$a>b$}
+\STATE \SET $a = a - b$
+\ELSE 
+\STATE \SET $b = b - a$
+\ENDIF
+\STATE \GOTO \ref{3Start}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{}
+\algsetup{indent=1.5em}
+\begin{algorithmic}[1]
+\REQUIRE Reelle Zahl $a\in\mathbb{R}_{\ge 0}$
+\ENSURE Reine reelle Zahl $x\in\mathbb{R}$
+\STATE \SET $x := 2$ und $y := 1$.
+\IF{$|x-y|\le 10^{-10}$} \label{2Start} 
+\RETURN $x$
+\ENDIF
+\STATE \SET $x := y$
+\STATE \SET $y := \frac{1}{2} \cdot \left(x+\frac{a}{x}\right)$
+\STATE \GOTO \ref{2Start}
+\end{algorithmic}
+\end{algorithm}
+\end{aufg}
+
+\begin{aufg}
+Wettbewerb: Gegeben ist folgender Programmrumpf:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#include <stdio.h>
+int main(int argc, char **argv) {
+	int x = 2;
+	/* dein Code hier */
+	printf("%i\n", x);
+	return 0;
+}
+\end{lstlisting}
+\end{codelisting}
+Füge an der markierten Stelle C-Code ein, sodass der Wert von $2^{\left(3^3\right)}$ ausgegeben wird. Wer in diesem Raum am wenigsten Zeichen dafür benötigt bekommt eine Dose Cola\footnote{Wenn er sie sich kauft.}. Erlaubt sind aber nur die Zeichen 
+\begin{center}
+	x \quad + \quad - \quad * \quad / \quad =
+\end{center}
+und das Semikolon. Zeilenumbrüche und Leerzeichen können natürlich nach belieben verwendet werden, da sie vom Compiler ignoriert werden.
+\end{aufg}
+
+\end{document}
