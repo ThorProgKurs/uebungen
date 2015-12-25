@@ -1,0 +1,33 @@
+\begin{aufg}
+Implementiere "`dynamische Arrays"'. Also Funktionen, die es leicht ermöglichen mit dynamisch großen Arrays zu arbeiten. Verwende eine Header-Datei in folgendem Stil:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+typedef struct {
+  double *data; /* eigentliches Array */
+  int length;   /* erstes nicht verwendetes Element */
+  int _size;    /* Menge der allokierten Elemente */
+} DBLARRAY;
+
+/* initialisiert eine Array-Datenstruktur */
+DBLARRAY *dblarray_init();
+
+/* gibt eine Array-Datenstruktur wieder frei */
+void dblarray_free(DBLARRAY *);
+
+/* setzt den Wert an der Stelle i auf val 
+ * falls nötig wird neuer Speicher allokiert und 
+ * alle Elemente bis dorthin mit 0 initialisiert */
+int dblarray_set(DBLARRAY *, int i, double val);
+
+/* setze das erste nicht initialisierte Element auf 
+ * val sollte es noch nicht existieren wird neuer 
+ * Speicher allokiert */
+int dblarray_push(DBLARRAY *, double val);
+
+/* gib den Wert an der Stelle i zurück */
+double dblarray_get(DBLARRAY *, int i);
+
+\end{lstlisting}
+\end{codelisting}
+Auf der Webseite findes du eine \verb|main.c|, die obiges Modul \emph{verwendet}. Damit kannst du es sozusagen testen.
+\end{aufg}

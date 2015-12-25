@@ -1,0 +1,25 @@
+\begin{aufg}
+~\begin{enumerate}
+\item
+Implementiere die Addition, Multiplikation, Potenzen und Division komplexer Zahlen. Verwende dazu folgende Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+#ifndef _COMPLEX__H
+#define _COMPLEX__H
+
+typedef struct _COMPLEX {
+	double real;
+	double imag;
+} COMPLEX;
+
+COMPLEX cplx_add(COMPLEX a, COMPLEX b);
+COMPLEX cplx_mul(COMPLEX a, COMPLEX b);
+COMPLEX cplx_pow(COMPLEX a, unsigned long n);
+COMPLEX cplx_div(COMPLEX a, COMPLEX b);
+
+#endif
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere die Addition, Multiplikation und Division sowie das Kürzen rationaler Zahlen. Schreibe dazu erst die Header-Datei.
+\end{enumerate}
+\end{aufg}

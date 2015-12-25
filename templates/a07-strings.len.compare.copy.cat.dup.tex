@@ -1,0 +1,48 @@
+\begin{aufg}
+\begin{enumerate}
+\item Implementiere eine C-Datei zu folgender Header-Datei:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* gibt die Laenge eines Strings zurueck */
+int str_len(char *s); 
+
+/* gibt 0 zurueck, wenn zwei strings gleich 
+ * sind und 1 sonst */
+int str_cmp(char *s1, char *s2);
+
+/* kopiert s nach d und gibt d zurueck */
+char *str_cpy(char *d, char *s);
+
+/* haenge s2 and s1 an und gib s1 zurueck */ 
+char *str_cat(char* s1, char* s2)
+
+/* allokiere neuen Speicher
+ * fuer eine Kopie von s */
+char *str_dup(char *s);
+\end{lstlisting}
+\end{codelisting}
+\item Implementiere nun noch folgende String-Funktionen, die man in der Praxis \emph{niemals} benutzen wuerde:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* schreibt s rueckwaerts in s
+ * und gibt es zurueck */
+char *str_reverse(char *s);
+
+/* gibt 1 zurueck, wenn ein String ein Palindrom
+ * ist und 0 sonst */
+int str_ispalin(char *s);
+
+/* haenge s2 an s1 an und stelle sicher, dass
+ * dazu genug Speicher in s1 zur
+ * Verfuegung steht */
+char *str_smartcat(char *s1, char *s2)
+
+/* verkleinert den Speicher auf den s zeigt
+ * auf die Laenge von s */
+char *str_compress(char *s);
+\end{lstlisting}
+\end{codelisting}
+\end{enumerate}
+Ein Palindrom ist ein String, der rückwärts gelesen der Gleiche ist, zum
+Beispiel ``anna''.
+\end{aufg}

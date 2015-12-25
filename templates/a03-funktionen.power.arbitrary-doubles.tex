@@ -1,0 +1,11 @@
+\begin{aufg}
+Diese Aufgabe wird auf eine \verb|power(x, y)|-Funktion führen, die für beliebige $x \in \R^+$ und $y \in \R$ den Wert von $x^y$ berechnet.
+\begin{itemize}[leftmargin=*]
+\item Implementiere die Exponential-Funktion \verb|expo(x)|, die $e^x$ mithilfe folgender Reihendarstellung: \[
+e^x = \sum_{k=0}^\infty \frac{x^k}{k!} \]
+\item Implementiere eine Logarithmus-Funktion \verb|logarithm(x)|, die $\ln(x)$ mithilfe folgender Reihedarstellung berechnet: \[
+\ln(x) = 2\cdot \sum_{k = 0}^\infty \left(\frac{x-1}{x+1}\right)^{2k + 1} \frac{1}{2k + 1} \]
+\item Verwende die Formel \[
+x^y = e^{y \cdot \ln(x)} \] um \verb|power(x, y)| zu bestimmen.
+\end{itemize}
+\end{aufg}

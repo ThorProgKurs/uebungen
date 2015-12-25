@@ -1,0 +1,24 @@
+\begin{aufg}
+Implementiere den Dijkstra-Algorithmus:
+\begin{description}
+\item{Input:} Ein gerichteter Graph G = (V, E), Kantengewichte $c: E(G) \rightarrow \R_+$ und ein Knoten $s \in V$.
+\item{Output:} Die kürzesten Wege von $s$ zu jedem $v \in V$ und ihre Längen. \\ Genauer: Wir erhalten für jede $v \in V$ die Werte $l(v)$ und $p(v)$ wobei $l(v)$ die Länge des kürzesten $s$-$v$-Weges und $p(v)$ der Vorgänger von v auf dem kürzesten $s$-$v$-Weg ist. Wenn $v$ von $s$ nicht erreichbar ist, dann ist $l(v) = \infty$ und $p(v)$ undefiniert.
+\end{description}
+
+\begin{codelisting} \quad \\
+1. $l(s) := 0$ \\
+2. FUER alle $v \in V - \left\{ s \right\} $ TUE $l(v) := \infty$ \\
+3. $R := \emptyset$ \\
+4. Sei $v \in V - R$ s.d. $l(v) = \min_{w \in {V - R}}l(w)$ \\
+5. $R := R \cup \left\{v\right\}$ \\
+6. FUER alle $w \in V - R$ s.d. $(v, w) \in E$ TUE \\
+-. . WENN $l(w) > l(v) + c(v,w)$ DANN \\
+-. . . $l(w) := l(v) + c(v, w)$ \\
+-. . . $p(w) := v$ \\
+7. WENN $R \neq V$ DANN gehe zu Zeile 4
+\end{codelisting} \\ 
+\\
+Tipp: Verwende zum Finden des Minimums in Zeile 4 einen Heap. \\
+Testinstanzen (mit Kantengewichten) findest du auf der Kurs-Homepage, das Format sollte selbstmurmelnd sein.
+
+\end{aufg}

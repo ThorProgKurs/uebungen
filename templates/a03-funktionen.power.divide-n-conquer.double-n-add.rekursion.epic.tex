@@ -1,0 +1,16 @@
+\begin{aufg}
+\begin{enumerate}[leftmargin=*]
+\item Implementiere für $x \in \R$ und $n \in \N$ eine Potenzfunktion $x^n=$ \verb|power(x, n)| mit der Double-and-Add-Methode: \[
+	\power(x, n) = \left\{ \begin{array}{ll}
+	1 & \text{wenn } n = 0 \\
+	x \cdot \power\left(x^2, \frac{n-1}{2}\right) & \text{wenn } n \text{ ungerade} \\
+	\power\left(x^2, \frac{n}{2}\right) & \text{wenn } n \text{ gerade} \\
+	\end{array}
+	\right.
+\]
+zuerst mal rekursiv. 
+\item Implementiere eine Potenzfunktion \verb|naiv_power(x, n)|, indem du eine Schleife von $1$ bis $n$ laufen lässt und bei jedem Durchlauf eine mit $1$ Initialisierte Variable mit $x$ multipliziert. Berechne $0,9999999999^{2000000000}$ einmal mit \verb|power(x, n)| von oben und einmal mit \verb|naiv_power(x, n)| (es sollte ca. $0,818731$ raus kommen). 
+\item* Implementiere die Double-and-Add-Methode mit einer Schleife, also ohne rekursiven Aufruf.
+\item* Frage einen Tutor wie man Zeit messen kann und vergleiche die Laufzeiten der 3 Funktionen.
+\end{enumerate}
+\end{aufg}

@@ -1,0 +1,21 @@
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|presentation(n, r)|, die zu einer natürlichen Zahl (im Zehnersystem) $n$ und einer Basis $0 < r < 10$ mit nachfolgendem Algorithmus die Darstellung von $n$ in der Basis $r$ ausgibt: Dividiere durch r, merke dir den Rest, den die Zahl bei der Division lässt. Verfahre mit dem Ergebniss der Division (abgerundet) so weiter. Die Reste geben die Zahl in der neuen Basis. Hier ein Beispiel, wie der Algorithmus für die 99 in der Basis 8 aussehen soll: 
+\begin{eqnarray}
+99 & = & 12 \cdot 8 + 3 \\
+12 & = & 1 \cdot 8 + 4 \\
+1 & = & 0 \cdot 8 +1
+\end{eqnarray}
+Die Darstellung von 99 zur Basis 8 ist also 341 (oder "`richtig"' 143). Lagere die Funktion in ein eigenes Modul aus!
+\item Was macht dieser Programmschnipsel? Warum? \\
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+for(; n != 0; n /= r) {
+	printf("%i\n",n%r);
+}
+\end{lstlisting}
+\end{codelisting}
+
+\item{*} Implementiere \verb|presentation2(n, r)| rekursiv s.d. die Ziffern in richtiger (umgekehrter) Reihenfolge ausgegeben werden. Implementiere diese Funktion im gleichen Modul wie \verb|presentation(n, r)|!
+\end{enumerate}
+\end{aufg}

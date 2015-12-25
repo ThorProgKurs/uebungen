@@ -1,0 +1,5 @@
+\begin{aufg}*
+Es gibt für den Nintendo\texttrademark DS\texttrademark ein Spiel Namens ``Picross''. Dabei bekommt ein Spieler ein Gebiet von $n$ mal $n$ Feldern und muss manche Felder mit einem $\bigcirc$ und manche mit einem $\times$ markieren. Über jeder Spalte und links neben jeder Zeile steht ein $k$-Tupel von Zahlen ($k$ ist evtl. verschieden für jede Spalte und Zeile). Ein solches Tupel $(n_1, \ldots, n_k)$ bedeutet, dass in dieser Zeile / Spalte genau $k$ Blöcke von $\bigcirc$s stehen (der $i$-te Block besteht aus genau $n_i$ solcher $\bigcirc$s), die jeweils durch mind. ein $\times$ getrennt sein müssen. 
+Ein Beispiel: Wenn in einer Zeile $(2, 3, 2)$ steht muss in dieser Zeile einmal $\bigcirc \bigcirc$, einmal $\bigcirc \bigcirc \bigcirc$ und noch einmal $\bigcirc \bigcirc$ stehen, die jeweils durch mind. ein $\times$ getrennt sind.
+Schreibe, wie oben, einen Solver, der zu den $k$-Tupeln eine Lösung findet. 
+\end{aufg}

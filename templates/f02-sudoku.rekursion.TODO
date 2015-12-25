@@ -1,0 +1,6 @@
+\begin{aufg} Finde heraus was ein Sudoku ist, danach schreibe ein Modul mit Funktionen, die
+\begin{enumerate}
+	\item prüft, ob ein Sudoku korrekt gelöst ist
+	\item ein teilweise ausgefülltes Sudoku löst
+\end{enumerate}
+\end{aufg}

@@ -1,0 +1,13 @@
+\begin{aufg}
+\begin{enumerate}
+\item Vielleicht kennt ihr das Cantor'sche Diagonalverfahren, man verwendet es beispielsweise um zu zeigen, dass $\N$ und $\Q$ gleichmächtig sind. Eine Funktion $\pi: \N^2 \rightarrow \N$, die einem Pärchen natürlicher Zahlen ihre Nummer auf dem "`Weg"' durch das Diagonalschema zuordnet ist gegeben durch: \[
+	\pi(x, y) = \frac{(x+y) \cdot (x+y+1)}{2} + y \]
+Implementiere die Funktion $\pi$ in einem eigenen Modul "`CantorDiag"'.
+\item Es lässt sich zeigen, dass diese Funktion invertierbar ist. Die Werte der Inversen $\pi^{-1}: \N \rightarrow \N^2$ lassen sich mit folgender Methode berechnen: Zu einem $z = \pi(x, y)$ erhält man $x$ und $y$ zurück mit \[
+w = \left\lfloor \frac{\sqrt{8\cdot z + 1}-1}{2} \right\rfloor;
+t = \frac{w^2 + w}{2};
+y = z - t;
+x = w -y \]. Implementiere auch diese Funktion indem du die Zahl $z$ und Pointer auf Variablen $x$ und $y$ übergibst in das gleiche Modul wie $\pi$. 
+\item Zeige: $\forall z \in \N \cap [0, 1000]: \pi\left(\pi^{-1}\left(z\right)\right) = z$
+\end{enumerate}
+\end{aufg}

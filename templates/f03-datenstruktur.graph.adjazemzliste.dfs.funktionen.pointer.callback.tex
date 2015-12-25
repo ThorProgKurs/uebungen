@@ -1,0 +1,33 @@
+\begin{aufg}
+Implementiere eine Graphenstruktur mit Adjazenzlisten. 
+\begin{enumerate}
+	\item Es sollten (unter anderem) eine Funktion zur Verfügung stehen um einen Graphen aus einer Datei in folgenden Format einzulesen: In der ersten Zeile stehen durch Leerzeichen getrennt die Knotenzahl $n$ und Kantenzahl $m$ (die Knoten seien o.B.d.A von $1$ bis $n-1$ durchnummeriert). Danach folgen $n$ Zeile mit jeweils einer Zahl, mit der ein Knoten beschriftet werden soll (könnte z.B. Knotenfarbe oder Knotenkosten sein). Dann folgen $m$ Zeilen, die jeweils aus zwei Zahlen bestehen, die für die von dieser Kante verbundenen Knoten stehen. Beispiel:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+4 7
+5
+10
+8
+6
+0 2
+3 1
+2 3
+1 2
+2 1
+3 2
+3 0
+\end{lstlisting}
+\end{codelisting}
+	\item Implementiere eine allgemeine Tiefensuche mit Callback-Funktion in folgendem Stil:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+graph_dfs(GRAPH* G, VERTEX *v, 
+  void (*callback)(VERTEX *, void *), void *udd);
+\end{lstlisting}
+\end{codelisting}
+	Hierbei bezeichne \verb|G| einen Pointer auf deine Graphenstruktur und \verb|v| einen auf den Startknoten. Der Funktionenpointer \verb|callback| soll nach jedem rekursiven Aufruf der Tiefensuche aufgerufen werden und zwei Argumente bekommen. Das erste Argument ist der aktuelle Knoten an dem die Tiefensuche ist und an zweiter Stelle bekommt sie einfach den an die Tiefesuche selbst übergebenen void-Pointer \verb|udd| weiter übergeben. 
+	\item Verwende die eben programmierte Funktion um zu prüfen welche Knoten mit Beschriftung $i \in \mathbb{N}$ vom Startknoten aus erreichbar sind.
+	\item Finde mit Hilfe deiner Tiefensuche eine topologische Sortierung eines Baumes.	Eine topologische Sortierung eines gerichteten Graphen $G$ ist eine Sortierung der Knoten $V(G) = \left\{v_1, \ldots, v_n\right\}$ s.d. für jede Kante $(v_i, v_j) \in E(G)$ die ungleichung  $i < j$ gilt. 
+	\item Die Knotenbeschriftung seien nun Knotenkosten. Finde in einem Baum die Kante s.d. die durch Löschen der Kante entstehenden Zusammenhangskomponenten betragsmäßige minimale Kostendifferenz haben.
+\end{enumerate}
+\end{aufg}

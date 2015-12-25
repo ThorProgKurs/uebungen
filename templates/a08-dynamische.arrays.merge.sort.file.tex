@@ -1,0 +1,17 @@
+\begin{aufg}
+Diese Aufgabe läuft auf die Implementierung des Merge-Sort Algorithmus hinaus.
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|merge|, die zwei bereits sortierte (eventuell verschieden große) Arrays als Argumente erhält, diese zu einem sortieren Array kombiniert und dieses zurück liefert. 
+\item Die Funktion \verb|mergesort| selbst soll ein Array in zwei (möglichst gleich große) Teilarrays zerlegen, sich für diese Teilarrays selbst aufrufen und danach die dann sortierten Teilarrays mit der \verb|merge|-Funktion kombinieren. Erhält die Funktion ein Array mit keinem oder einem Element so belässt es dieses Array wie es ist, dann ist es nämlich bereits sortiert.
+\item Besorge dir die Datei \verb|daten.h|, sortiere das darin definierte Array und schreibe es sortiert in eine Datei.
+\end{enumerate}
+
+Hier als Tipp ein Vorschlag für die Signaturen der beiden Funktionen:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int *merge(int *list1, int n, int *list2, int m);
+void mergesort(int *list, int n);
+\end{lstlisting}
+\end{codelisting}
+
+\end{aufg}

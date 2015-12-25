@@ -1,0 +1,6 @@
+\begin{aufg} In dieser Aufgabe geht es um Sortieralgorithmen.
+\begin{enumerate} 
+\item Implementiere folgenden Sortieralgorithmus: Sortiere das kleines Element an die erste Stelle, dann das zweitekleinste Element an die zweite Stelle usw.
+\item Der obige Sortieralgorithmus hat Komplexität $O(n^2)$ (wobei $n$ die Anzahl der Elemente ist). Aus theoretischer Sicht sind Sortieralgorithmen bis zu $O(n \log(n))$ realisierbar. Wenn man nun aber die größer der zu sortierenden Eintrag einschränkt (z.B. sei die größte zu sortierende Zahl $20000$) ist es sogar möglich einen \emph{linearen} Sortieralgorithmus zu implementieren, also $O(n)$. Dazu stellt man sich für jede Zahl einen leeren ``Bucket'' (Korb) vor. Dann geht man die Liste der zu sortierenden Einträge durch und für ein Verkommen der Zahl $k$ einen Ball in den $k$-tenn Bucket. Danach geht man die Buckets vom ersten bis zu letzten durch. Ist am $k$-ten Bucket angekommen und es liegen $j$ Bälle darin, dann schreibe sukzessive $j$ mal die Zahl $k$ in die zu sortierende Liste. Da die Bälle genau den zu sortierenden Zahlen entsprechen ist die Liste nachher sortiert. Auf der Webseite findest du eine unsortierte Liste, die du per \verb|include| oder copy \& paste einbinden kannst.
+\end{enumerate}
+\end{aufg}

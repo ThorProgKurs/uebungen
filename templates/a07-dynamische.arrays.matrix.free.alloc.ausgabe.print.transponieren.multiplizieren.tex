@@ -1,0 +1,15 @@
+\begin{aufg} Implementiere einige Funktionen um mit quadratischen Matrizen umzugehen:
+\begin{enumerate}
+\item Eine Funktion, die Speicher für eine quadratische Matrix allokiert, eine um ihn freizugeben, eine um sie auszugeben und eine um sie zur Einheitsmatrix zu initialisieren (das ist die Matrix mit $1$en auf der Hauptdiagonale und $0$en sonst):
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double **matrix_alloc(int n);
+void     matrix_free(double **A, int n);
+void     matrix_print(double **A, int n);
+double **matrix_id(double **A, int n);
+\end{lstlisting}
+\end{codelisting}
+\item Eine Funktion um eine Matrix zu transponieren (d.h. an der Hauptdiagonale ``zu spiegeln'')
+\item Eine Funktion, die zwei solche Matrizen miteinander multipliziert und eine neue Matrix zurück gibt. Für zwei $n \times n$-Matrizen $A = (a_{ij})$ und $B = (b_{ij})$ ist $A \cdot B = C = (c_{ij})$ durch $c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}$ definiert.
+\end{enumerate}
+\end{aufg}

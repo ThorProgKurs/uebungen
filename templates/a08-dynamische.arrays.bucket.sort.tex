@@ -1,0 +1,8 @@
+\begin{aufg}
+Implementiere den Bucket-Sort Algorithmus: Unter der Annahme, dass die zu sortierenden Daten aus einem endlichen Wertebereich stammen kann man dies theoretisch sehr schnell machen (man sagt: in Linearzeit). Ohne große Einschränkung der Universalität des Algorithmus betrachten wir hier nur ein \verb|unsigned short|-Array $A$. Bucketsort besteht nun aus zwei Durchläufen:
+\begin{enumerate}
+  \item Sei $n$ das Maximum aus $A$, erstelle dann ein \verb|unsigned|-Array $B$ mit $n+1$ Elementen und sorge dafür, dass an der $i$-ten Stelle die Anzahl der $i$s steht, die in $A$ vorkommen.
+  \item Gehe nun $B$ durch und überschreibe $A$. Schreibe dabei $k$ mal das Element $i$, wenn an der $i$-ten Stelle von $B$ ein $k$ steht.
+\end{enumerate}
+
+\end{aufg}

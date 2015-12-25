@@ -1,0 +1,35 @@
+\begin{aufg} 
+Lese noch einmal im Skript die Sektion 7.5 und implementiere doppelt verkettete Listen, die \verb|double|-Variablen speichern.
+
+\medskip\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+/* Definiere hier angemessene Strukturen fuer einen
+   einzelnen Listeneintrag und die Liste selbst. */
+
+/* Leere Liste erstellen */
+LIST *list_create();
+
+/* Element hinter E einfuegen, NULL heisst am Anfang */
+LISTNODE *list_insert(LIST *L, LISTNODE *E, double p);
+
+/* Element am Anfang bzw. Ende einfuegen */
+LISTNODE *list_unshift(LIST *L, double p);
+LISTNODE *list_push(LIST *L, double p);
+
+/* Element am Anfang bzw. Ende entfernen und 
+   die Daten zurueck geben */
+double list_shift(LIST *L);
+double list_pop(LIST *L);
+
+/* ein Element aus der Liste entfernen */
+void list_delete(LIST *L, LISTNODE *E);
+
+/* zwei Listen zusammenfuegen */
+LIST *list_merge(LIST *L, LIST *M);
+
+/* Liste inklusive allen Elementen frei geben */
+void list_free(LIST *L);
+
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}

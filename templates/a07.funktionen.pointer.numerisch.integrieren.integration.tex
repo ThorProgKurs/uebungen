@@ -1,0 +1,15 @@
+\begin{aufg}
+In dieser Aufgabe geht es um numerische Integration.
+\begin{enumerate}
+\item Implementiere eine Integrationsfunktion, die das Intervall $[a, b]$ in $n$ gleich große Teile aufteilt, für diese jeweils die Trapzsumme (aus der Vorlesung) berechnet und diese aufsummiert:
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+double integrate(double a, double b, 
+  double (*f)(double), unsigned int n); 
+\end{lstlisting}
+\end{codelisting}
+
+\item Schreibe nun eine Funktion, die nicht die Anzahl der Teilintervalle erhält, sondern eine ``Fehlertoleranz'' $e$. Die Funktion die Aufteilung solange verfeinern, bis sich der approximierte Wert für das Integral durch eine Verfeinerung nur noch um weniger als $e$ ändern würde. 
+\end{enumerate}
+\end{aufg}
