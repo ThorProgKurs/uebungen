@@ -1,0 +1,78 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+\begin{aufg}
+Das folgende Programm sollte die Fakult\"atsfunktion implementieren
+und $5! + 17!$ auf der Konsole ausgeben.
+Zuf\"alligerweise haben wir $6$ Fehler dabei gemacht.
+Schnapp sie dir alle! 
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,showstringspaces=false]
+/* Fakultaetstest 
+ * (c) 2015 Clelia und Johannes */
+
+#include <studio.h>
+
+int fakultaet (n) {
+   int ergebnis = 0;    /* speichert die Fakultaet */
+	
+   while (n > 0) 	/* verkleinere n, bis es */
+      ergebnis *= n;    /* null ist und multi- */
+      n--;	        /* pliziere mit ergebnis */
+   return ergebnis;
+}
+
+int main () {
+	int add2fak;
+
+	add2fak = fakultaet (5) + fakulataet (17);
+	printf ("5! + 17! = %i\n", add2fak);
+	return 0,
+}
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+
+\begin{aufg}
+Implementiere die Signumsfunktion \verb|sgn(x)|, den Absolutbetrag \verb|betrag(x)|, \verb|cos(x)| und die Wurzelfunktion \verb|wurzel(x)| (mit dem Heron-Verfahren vom ersten Zettel) als Funktionen und lagere sie in ein eigenes Modul aus.
+\end{aufg}
+
+\begin{aufg}
+Implementiere die Riemann'sche Zeta-Funktion für $s \in \mathbb R$: $$
+\zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} $$
+Teste die Funktion für einige Werte $s \in ] 1, 3 [$. Für Werte $s \leq 1$
+gilt $\zeta(s) = \infty$.
+\end{aufg}
+
+\begin{aufg}
+\begin{enumerate}[leftmargin=*]
+\item Implementiere für $x \in \R$ und $n \in \N$ eine Potenzfunktion $x^n=$ \verb|power(x, n)| mit der Double-and-Add-Methode: \[
+	\power(x, n) = \left\{ \begin{array}{ll}
+	1 & \text{wenn } n = 0 \\
+	x \cdot \power\left(x^2, \frac{n-1}{2}\right) & \text{wenn } n \text{ ungerade} \\
+	\power\left(x^2, \frac{n}{2}\right) & \text{wenn } n \text{ gerade} \\
+	\end{array}
+	\right.
+\]
+zuerst mal rekursiv. 
+\item Implementiere eine Potenzfunktion \verb|naiv_power(x, n)|, indem du eine Schleife von $1$ bis $n$ laufen lässt und bei jedem Durchlauf eine mit $1$ Initialisierte Variable mit $x$ multipliziert. Berechne $0,9999999999^{2000000000}$ einmal mit \verb|power(x, n)| von oben und einmal mit \verb|naiv_power(x, n)| (es sollte ca. $0,818731$ raus kommen). 
+\item* Implementiere die Double-and-Add-Methode mit einer Schleife, also ohne rekursiven Aufruf.
+\item* Frage einen Tutor wie man Zeit messen kann und vergleiche die Laufzeiten der 3 Funktionen.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Diese Aufgabe wird auf eine \verb|power(x, y)|-Funktion führen, die für beliebige $x \in \R^+$ und $y \in \R$ den Wert von $x^y$ berechnet.
+\begin{itemize}
+\item Implementiere die Exponential-Funktion \verb|expo(x)|, die $e^x$ mithilfe folgender Reihendarstellung: \[
+e^x = \sum_{k=0}^\infty \frac{x^k}{k!} \]
+\item Implementiere eine Logarithmus-Funktion \verb|logarithm(x)|, die $\ln(x)$ mithilfe folgender Reihedarstellung berechnet: \[
+\ln(x) = 2\cdot \sum_{k = 0}^\infty \left(\frac{x-1}{x+1}\right)^{2k + 1} \frac{1}{2k + 1} \]
+\item Verwende die Formel \[
+x^y = e^{y \cdot \ln(x)} \] um \verb|power(x, y)| zu bestimmen.
+\end{itemize}
+\end{aufg}
+
+
+\end{document}
