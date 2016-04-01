@@ -16,43 +16,52 @@ Erweitere das "`mymath"'-Modul noch um eine Funktion, die zu den drei Koeffizien
  Gleichung $$
 a \cdot x^2 + b \cdot x + c = 0 $$
 die Lösungen berechnet.
-
-\medskip \noindent \emph{Tip:} Eine Funktion kann nur einen Wert als Rückgabewert haben. Um mehr als einen Wert zurück 
-zu geben, kann man Pointer verwenden.
 \end{aufg}
 
-
-Wir brauchen im folgenden eine Potenzfunktion, die zwei Fließkommazahlen als Argumente akzeptiert. Falls du diese 
-Funktion gestern geschrieben hast, sollte sie jetzt im \verb|mymath|-Modul verfügbar sein. Diese Funktion wird aber 
-vermutlich zu langsam sein, daher gibt es die Funktion 
-
-\begin{verbatim}
-double pow(double x, double y);
-\end{verbatim}
-
-in der Systemheader \verb|<math.h>|. Im Skript findest du bei Interesse im Anhang eine Referenz einiger 
-Systembibliotheken.
-
 \begin{aufg}
-Implementiere die Riemann'sche Zeta-Funktion für $s \in \N$: $$
-\zeta(s) := \sum_{k=1}^\infty \frac{1}{k^s} $$
+Schreibe ein Modul \verb|arrayhelpers|, das einige nützliche Funktion zum Umgang mit statischen \verb|int|-Arrays enthält:
+\begin{enumerate}
+\item Array zeilenweise oder mit Kommata getrennt ausgeben
+\item Alle Felder eines Arrays mit einem Wert initialisieren
+\item Array um $1$ rotieren (d.h. das hinterste Element an erste Stelle schreiben und alle anderen Elemente um eins nach hinten schieben)
+\item Array um $k$ rotieren 
+\item Array umdrehen
+\item Ein Array in einem anderen suchen und die Position zurück geben. Sollte das Array nicht im anderen enthalten sein, so soll der Rückgabewert $-1$ sein.
+
+\emph{Beispiel:} 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int A[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int B[3] = {4, 5, 6}
+int C[2] = {5, 7}
+int D[2] = {9, 10}
+\end{lstlisting}
+\end{codelisting}
+Hier gilt: \verb|B| ist an $3$-ter Stelle in \verb|A| enthalten und \verb|D| an $8$-ter. Das Array \verb|C| ist garnicht in \verb|A| enthalten, darum wird der Rückgabewert $-1$ sein.
+\end{enumerate}
 \end{aufg}
 
 \begin{aufg} In dieser Aufgabe geht es um Sortieralgorithmen. Definiere dir ein Test-Array mit einer \emph{festen} 
-Anzahl von Einträgen mit denen du den Algorithmus testest. Lagere diesen Algorithmus noch nicht in eine Funktion aus 
-(du weiß ja noch gar nicht, wie man Arrays an Funktionen übergibt).
+Anzahl von Einträgen mit denen du den Algorithmus testest.
 \begin{enumerate} 
 \item Implementiere folgenden Sortieralgorithmus: Sortiere das kleines Element an die erste Stelle, dann das 
-zweitekleinste Element an die zweite Stelle usw.
-\item Der obige Sortieralgorithmus hat Komplexität $\mathcal O(n^2)$ (wobei $n$ die Anzahl der Elemente ist). Aus 
-theoretischer Sicht sind Sortieralgorithmen bis zu $\mathcal O(n \log(n))$ realisierbar. Wenn man nun aber die größer 
-der zu sortierenden Eintrag einschränkt (z.B. sei die größte zu sortierende Zahl $20000$) ist es sogar möglich einen 
-\emph{linearen} Sortieralgorithmus zu implementieren, also $\mathcal O(n)$. Dazu stellt man sich für jede Zahl einen 
-leeren ``Bucket'' (Korb) vor. Dann geht man die Liste der zu sortierenden Einträge durch und für ein Verkommen der Zahl 
-$k$ einen Ball in den $k$-ten Bucket. Danach geht man die Buckets vom ersten bis zu letzten durch. Ist am $k$-ten 
-Bucket angekommen und es liegen $j$ Bälle darin, dann schreibe sukzessive $j$ mal die Zahl $k$ in die zu sortierende 
-Liste. Da die Bälle genau den zu sortierenden Zahlen entsprechen ist die Liste nachher sortiert. 
+zweitekleinste Element an die zweite Stelle usw. Dieser Algorithmus ist in vielen Fällen relativ langsam (aber sehr 
+schnell bei kurzen Listen) -- man spricht auch von einer Komplexität von $\mathcal O(n^2)$ (wobei $n$ die Anzahl der 
+Elemente ist). 
+\item Aus theoretischer Sicht sind Sortieralgorithmen bis zu $\mathcal O(n \log(n))$ realisierbar (von denen wir in den 
+nächsten Tagen auch noch einige kennen lernen werden). Wenn man nun aber die Wertemenge der zu sortierenden Eintrag 
+einschränkt (z.B. sei die größte zu sortierende Zahl $20000$) ist es sogar möglich einen \emph{linearen} 
+Sortieralgorithmus zu implementieren, also $\mathcal O(n)$. Dazu stellt man sich für jede Zahl einen leeren ``Bucket'' 
+(Korb) vor. Dann geht man die Liste der zu sortierenden Einträge durch und für ein Verkommen der Zahl $k$ einen Ball in 
+den $k$-ten Bucket. Danach hat man alle Zahlen aus der Liste statt dessen in die Buckets sortiert und kann die 
+ursprüngliche Liste überschreiben. Diese machen wir auf folgende Weise: Gehe die Buckets vom ersten bis zum letzten 
+durch. Liegen im $k$-ten Bucket $j$ Bälle, schreibe $j$ mal die Zahl $k$ hintereinander in die Liste. Da die Bälle 
+genau den zu sortierenden Zahlen entsprechen ist die Liste nachher sortiert. Diese Algorithmus heißt ``Bucket-Sort''. 
+
+Implementiere den Bucket-Sort-Algorithmus für \verb|int|-Arrays mit Werten zwischen $0$ und $20000$.
 \end{enumerate}
 \end{aufg}
+
+
 
 \end{document}
