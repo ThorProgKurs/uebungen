@@ -1,0 +1,76 @@
+\documentclass{uebungszettel}
+\begin{document}
+\begin{aufg}
+Das folgende Programm sollte ein Array mit $n$ Zahlen 
+allokieren. In den $i$-ten Eintrag $1/(i+1)$ schreiben und das Array ausgeben.
+Dieses Programm benutzt die Funktion \verb|printarray| aus dem Modul \verb|"arrayhelpers"|.
+Leider haben wir dabei $5$ Fehler gemacht. 
+Schnapp sie dir alle! 
+
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,showstringspaces=false]
+/* Array erstellen, mit 1/(i+1) fuellen und ausgeben. 
+ * (c) 2015 Clelia und Johannes */
+
+#include <stdio.h>
+#include "arrayhelpers.h"
+
+int main () {
+   double *array;
+   int n,i;   
+	
+   n = 42;
+   /* Hole Speicher fuer n Eintraege */
+   array = malloc (n);  
+   if (array == NULL) {
+      printf ("Fehler, nicht genug Speicher.\n");
+   }
+   for (i = 0;i < sizeof (array);i++){
+      /* Schreibe 1/(i+1) in Array */
+      array[i] = 1/(i+1);   
+   }
+   printarray (array, n); /* Gebe Array aus */
+   free (array);	
+   return 0;
+}
+\end{lstlisting}
+\end{codelisting}
+\end{aufg} 
+
+\begin{aufg}
+\begin{enumerate}
+\item
+Schreibe ein Programm, welches eine Datei im folgenden Format ausliest:
+In der ersten Zeile steht die Anzahl der folgende Zeilen.
+Die Zeilen sehen dann so aus:
+\medskip \begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb,mathescape=true]
+cos(0.4) = 0.921
+cos(0.45) = 0.9014
+cos(0.6) = 0.82533
+\end{lstlisting}
+\end{codelisting}
+Wenn in einer Zeile das Ergebnis um mehr als $10^{-3}$ von dem tats\"achlichen Wert abweicht, 
+so soll diese Differenz mit Zeilennummer auf der Konsole ausgegeben werden.
+\item * Modifiziere das Programm so, dass in der ersten Zeile nicht mehr die Anzahl der Eintr\"age
+	stehen muss.
+\end{enumerate}
+\end{aufg}
+
+\begin{aufg}
+Diese Aufgabe läuft auf die Implementierung des Merge-Sort Algorithmus hinaus.
+\begin{enumerate}
+\item Implementiere eine Funktion \verb|merge|, die zwei bereits sortierte (eventuell verschieden große) Arrays als Argumente erhält, diese zu einem sortieren Array kombiniert und dieses zurück liefert. 
+\item Die Funktion \verb|mergesort| selbst soll ein Array in zwei (möglichst gleich große) Teilarrays zerlegen, sich für diese Teilarrays selbst aufrufen und danach die dann sortierten Teilarrays mit der \verb|merge|-Funktion kombinieren. Erhält die Funktion ein Array mit keinem oder einem Element so belässt es dieses Array wie es ist, dann ist es nämlich bereits sortiert.
+\item Schreibe ein Programm, dass einen Dateinamen auf der Kommandozeile entgegen nimmt, den Inhalt der Datei in ein \verb|int|-Array einließt, dieses sortiert und es dann wieder in die gleiche Datei zurück schreibt.
+\end{enumerate}
+
+Hier als Tipp ein Vorschlag für die Signaturen der beiden Funktionen:
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int *merge(int *list1, int n, int *list2, int m);
+void mergesort(int *list, int n);
+\end{lstlisting}
+\end{codelisting}
+\end{aufg}
+\end{document}
