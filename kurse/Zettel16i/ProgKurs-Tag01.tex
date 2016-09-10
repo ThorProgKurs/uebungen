@@ -97,23 +97,31 @@ Und das geht natürlich nur mit Wissen aus der Vorlesung.
 \end{aufg}
 
 \begin{aufg}
-Wettbewerb: Gegeben ist folgender Programmrumpf:
-\begin{codelisting}
-\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
-#include <stdio.h>
-int main(int argc, char **argv) {
-	int x = 2;
-	/* dein Code hier */
-	printf("%i\n", x);
-	return 0;
-}
-\end{lstlisting}
-\end{codelisting}
-Füge an der markierten Stelle C-Code ein, sodass der Wert von $2^{\left(3^3\right)}$ ausgegeben wird. Wer in diesem Raum am wenigsten Zeichen dafür benötigt bekommt eine Dose Cola\footnote{Wenn er sie sich kauft.}. Erlaubt sind aber nur die Zeichen 
-\begin{center}
-	x \quad + \quad - \quad * \quad / \quad =
-\end{center}
-und das Semikolon. Zeilenumbrüche und Leerzeichen können natürlich nach belieben verwendet werden, da sie vom Compiler ignoriert werden.
+    Wettbewerb: Gegeben ist folgender Programmrumpf:
+    \begin{codelisting}
+        \begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+        #include <stdio.h>
+        int main(int argc, char **argv) {
+            int x = 2;
+        /* dein Code hier */
+        printf("%i\n", x);
+        return 0;
+    }
+        \end{lstlisting}
+    \end{codelisting}
+    Füge an der markierten Stelle C-Code ein, sodass der Wert von $2^{\left(3^3\right)}$ ausgegeben wird. Erlaubt sind aber nur die Zeichen 
+    \begin{center}
+        \texttt x \quad \texttt + \quad \texttt - \quad \texttt * \quad \texttt / \quad \texttt =
+    \end{center}
+    und das Semikolon. Versuche durch geschicktes Multiplizieren und Nutzung
+    von Variablen mit möglichst wenig Zeichen auszukommen. Zeilenumbrüche und
+    Leerzeichen können natürlich nach belieben verwendet werden, da sie vom
+    Compiler ignoriert werden.
+
+    Diese Art ein Programm zu schreiben nennt man »Code Golf« und ist ein
+    witziger Zeitvertreib. Bei Programmen, die länger als eine Stunde relevant
+    sein sollen, empfiehlt es sich jedoch nicht, möglich kryptisch zu sein.
 \end{aufg}
+
 
 \end{document}
