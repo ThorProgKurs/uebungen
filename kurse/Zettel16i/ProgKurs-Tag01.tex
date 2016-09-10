@@ -9,62 +9,91 @@ Installiere einen Compiler auf deinem Computer und kompiliere ein Hallo-Welt-Pro
 \end{aufg}
 
 \begin{aufg}
-Was machen folgende Algorithmen (kein C-Code)?
+Schreibe ein Programm, dass den Wert der folgenden Funktion ausgibt (für eine fest in den Quellcode geschriebene \verb|int|-Variable):
+\[
+	f(n) = \left\{ \begin{array}{ll}
+	\frac{n}{2} & \text{wenn } n \text{ gerade} \\
+	\frac{n+1}{2} & \text{wenn } n \text{ ungerade} \\
+	\end{array}
+	\right.
+\]
+Und das geht natürlich nur mit Wissen aus der Vorlesung.
+\end{aufg}
 
-\begin{algorithm}[H]
-\caption{}
-\algsetup{indent=1.5em}
-\begin{algorithmic}[1]
-\REQUIRE Ganze Zahl $c\in\mathbb{N}$
-\ENSURE Entweder \verb|Ja| oder \verb|Nein|.
-\STATE \SET $n := 2$.
-\IF{$n>\sqrt{c}$} \label{1Start}
-\RETURN \verb|Ja|
-\ENDIF
-\IF{$n$ teilt $c$}
-\RETURN \verb|Nein|
-\ENDIF
-\STATE \SET $n := n + 1$
-\STATE \GOTO \ref{1Start}
-\end{algorithmic}
-\end{algorithm}
+\begin{aufg}
+    Was machen folgende Algorithmen? (nächste Seite)
 
-\begin{algorithm}[H]
-\caption{}
-\algsetup{indent=1.5em}
-\begin{algorithmic}[1]
-\REQUIRE Ganze Zahlen $a,b\in\mathbb{N}$
-\ENSURE Eine ganze Zahl $k\in\mathbb{N}$
-\IF{$a=0$} 
-\RETURN $b$
-\ENDIF
-\IF{$b=0$} \label{3Start}
-\RETURN $a$
-\ENDIF
-\IF{$a>b$}
-\STATE \SET $a = a - b$
-\ELSE 
-\STATE \SET $b = b - a$
-\ENDIF
-\STATE \GOTO \ref{3Start}
-\end{algorithmic}
-\end{algorithm}
+    \begin{algorithm}[H]
+        \caption{}
+        \algsetup{indent=1.5em}
+        Eingabe ist eine ganze Zahl $c \in \mathbb N$. Dies ist am einfachsten
+        als Variable bereitzustellen. Ausgabe ist entweder »Ja« oder »Nein«.
 
-\begin{algorithm}[H]
-\caption{}
-\algsetup{indent=1.5em}
-\begin{algorithmic}[1]
-\REQUIRE Reelle Zahl $a\in\mathbb{R}_{\ge 0}$
-\ENSURE Reine reelle Zahl $x\in\mathbb{R}$
-\STATE \SET $x := 2$ und $y := 1$.
-\IF{$|x-y|\le 10^{-10}$} \label{2Start} 
-\RETURN $x$
-\ENDIF
-\STATE \SET $x := y$
-\STATE \SET $y := \frac{1}{2} \cdot \left(x+\frac{a}{x}\right)$
-\STATE \GOTO \ref{2Start}
-\end{algorithmic}
-\end{algorithm}
+        Schritte:
+        \begin{itemize}
+            \item
+                Setze $n$ auf 2.
+            \item
+                Wiederhole unendlich oft …
+                \begin{itemize}
+                    \item
+                        Falls $n > \sqrt c$, so gib »Ja« aus und beende das
+                        Programm.
+                    \item
+                        Falls $n$ ein Teiler von $c$ ist, so gib »Nein« aus und
+                        beende das Programm.
+                    \item
+                        Erhöhe $n$ um eins.
+                \end{itemize}
+        \end{itemize}
+    \end{algorithm}
+
+    \begin{algorithm}[H]
+        \caption{}
+        \algsetup{indent=1.5em}
+        Eingabe sind die ganzen Zahlen $a, b \in \mathbb N$. Ausgabe ist eine
+        ganze Zahl $k \in \mathbb N$.
+
+        Schritte:
+        \begin{itemize}
+            \item Wiederhole unendlich oft …
+                \begin{itemize}
+                    \item
+                        Falls $a = 0$ ist, gib $b$ aus und beende das Programm.
+                    \item
+                        Falls $b = 0$ ist, gib $a$ aus und beende das Programm.
+                    \item
+                        Falls $a > b$ ist, setze $a$ auf $a - b$.
+                    \item
+                        Falls obige Bedingung nicht erfüllt ist, setze $b$ auf
+                        $b - a$.
+                \end{itemize}
+        \end{itemize}
+    \end{algorithm}
+
+    \begin{algorithm}[H]
+        \caption{}
+        \algsetup{indent=1.5em}
+        Eingabe ist eine reelle nicht-negative Zahl $a \in \mathbb R_0^+$.
+        Ausgabe ist eine reelle Zahl $x \in \mathbb R$.
+
+        Schritte:
+        \begin{itemize}
+            \item
+                Setze $x$ auf 2 und $y$ auf 1.
+            \item
+                Wiederhole unendlich oft …
+                \begin{itemize}
+                    \item 
+                        Falls $|x - y| \leq 10^{-10}$ ist, gib $x$ aus und
+                        beende das Programm.
+                    \item
+                        Setze $x$ auf $y$.
+                    \item
+                        Setze $y$ auf $\frac12 (x + \frac ax)$.
+                \end{itemize}
+        \end{itemize}
+    \end{algorithm}
 \end{aufg}
 
 \begin{aufg}
