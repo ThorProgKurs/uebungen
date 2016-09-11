@@ -2,39 +2,26 @@
 \begin{document}
 
 \begin{aufg}
-Installiere einen Compiler auf deinem Computer und kompiliere ein Hallo-Welt-Programm. Informationen dazu und einen Download-Link für Cygwin findest du im Skript auf dem USB-Stick oder der Webseite des Kurses:
+Installiere einen Compiler auf deinem Computer und kompiliere ein Hallo-Welt-Programm. Informationen dazu und Cygwin findest du im Skript auf dem USB-Stick oder der Webseite des Kurses:
 \begin{center}
 	\verb|http://www.ah-effect.net/ |
 \end{center}
 \end{aufg}
 
 \begin{aufg}
-Schreibe ein Programm, dass den Wert der folgenden Funktion ausgibt (für eine fest in den Quellcode geschriebene \verb|int|-Variable):
-\[
-	f(n) = \left\{ \begin{array}{ll}
-	\frac{n}{2} & \text{wenn } n \text{ gerade} \\
-	\frac{n+1}{2} & \text{wenn } n \text{ ungerade} \\
-	\end{array}
-	\right.
-\]
-Und das geht natürlich nur mit Wissen aus der Vorlesung.
-\end{aufg}
-
-\begin{aufg}
-    Was machen folgende Algorithmen? (evtl. nächste Seite)
+    Was machen folgende drei Algorithmen?
 
     \begin{algorithm}[H]
         \caption{}
         \algsetup{indent=1.5em}
-        Eingabe ist eine ganze Zahl $c \in \mathbb N$. Dies ist am einfachsten
-        als Variable bereitzustellen. Ausgabe ist entweder »Ja« oder »Nein«.
+        Eingabe ist eine ganze Zahl $c \in \mathbb N$. Ausgabe ist entweder »Ja« oder »Nein«.
 
         Schritte:
         \begin{itemize}
             \item
                 Setze $n$ auf 2.
             \item
-                Wiederhole unendlich oft …
+                Wiederhole …
                 \begin{itemize}
                     \item
                         Falls $n > \sqrt c$, so gib »Ja« aus und beende das
@@ -56,7 +43,7 @@ Und das geht natürlich nur mit Wissen aus der Vorlesung.
 
         Schritte:
         \begin{itemize}
-            \item Wiederhole unendlich oft …
+            \item Wiederhole …
                 \begin{itemize}
                     \item
                         Falls $a = 0$ ist, gib $b$ aus und beende das Programm.
@@ -82,7 +69,7 @@ Und das geht natürlich nur mit Wissen aus der Vorlesung.
             \item
                 Setze $x$ auf 2 und $y$ auf 1.
             \item
-                Wiederhole unendlich oft …
+                Wiederhole …
                 \begin{itemize}
                     \item 
                         Falls $|x - y| \leq 10^{-10}$ ist, gib $x$ aus und
@@ -111,16 +98,27 @@ Und das geht natürlich nur mit Wissen aus der Vorlesung.
     \end{codelisting}
     Füge an der markierten Stelle C-Code ein, sodass der Wert von $2^{\left(3^3\right)}$ ausgegeben wird. Erlaubt sind aber nur die Zeichen 
     \begin{center}
-        \texttt x \quad \texttt + \quad \texttt - \quad \texttt * \quad \texttt / \quad \texttt =
+        \texttt x \quad \texttt + \quad \texttt - \quad \texttt * \quad \texttt / \quad \texttt = \quad \texttt ;
     \end{center}
-    und das Semikolon. Versuche durch geschicktes Multiplizieren und Nutzung
+    Versuche durch geschicktes Multiplizieren und Nutzung
     von Variablen mit möglichst wenig Zeichen auszukommen. Zeilenumbrüche und
-    Leerzeichen können natürlich nach belieben verwendet werden, da sie vom
+    Leerzeichen können nach belieben verwendet werden, da sie vom
     Compiler ignoriert werden.
 
     Diese Art ein Programm zu schreiben nennt man »Code Golf« und ist ein
-    witziger Zeitvertreib. Bei Programmen, die länger als eine Stunde relevant
-    sein sollen, empfiehlt es sich jedoch nicht, möglich kryptisch zu sein.
+    witziger Zeitvertreib.
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Programm, dass den Wert der folgenden Funktion ausgibt (für eine fest in den Quellcode geschriebene \verb|int|-Variable):
+\[
+	f(n) = \left\{ \begin{array}{ll}
+	\frac{n}{2} & \text{wenn } n \text{ gerade} \\
+	\frac{n+1}{2} & \text{wenn } n \text{ ungerade} \\
+	\end{array}
+	\right.
+\]
+Und das geht natürlich nur mit Wissen aus der Vorlesung.
 \end{aufg}
 
 

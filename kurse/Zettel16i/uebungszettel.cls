@@ -2,10 +2,9 @@
 \LoadClass[12pt]{article} 
 \RequirePackage[utf8]{inputenc} 
 \RequirePackage[T1]{fontenc} 
-\RequirePackage[german]{babel} 
+\RequirePackage[ngerman]{babel} 
 \RequirePackage{scrpage2}
 \RequirePackage{graphicx}
-\RequirePackage{german}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
