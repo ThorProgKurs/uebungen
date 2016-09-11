@@ -1,0 +1,17 @@
+before_install:
+- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-generic-recommended
+  dvipng lmodern latexmk
+before_script: cd kurse/Zettel16i
+script:
+- mkdir _build
+- latexmk -pdf -jobname=_build/ProgKurs-Tag01 ProgKurs-Tag01.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: BBCxE1g/ZBigjpw501gmplI42aqxwxb2qpNBt2BEgdJahD39pVPuhyXXTwig/Bw+c62MBPP1/+vVt5lviWyh9jZyIEkojUVmVkzT8oSQBprRU2E7fdJ0ehLGpu7jUO1k4IS5VrCx9CbVk3z2xLzYRj+NNNFA5vidd8TQ21e42JxJ4Js6oNFB0RcLUuOisIVXIrKZStCi7voYmGqFn/+aH8BL4X0Xx4p+51Wb1djfgWVoOC7w8pZPWEwMiOEY/Py3uU/HkaTGstW7DON3mwSneEDd+a0S4Mq2BkW6XutMQUG+jb3cNRL9z2K4kBI2WYxPtsOHCk+V3DEljLwDOJ3hqK3M8sxwKeftr4B5cIt5jipwGdBR6UVh5IDkoLzGztkgXixC5Q807UZP8UhgSVzOOdxA+hJz6em6Pb6zI6pvmHrsUDJWuAKxVbOMgnOABkhFuJ4js0KKRXmo7NiFL2T3sxX2J4H0051bNWFhKOEptSpMDxXT6g4mOABqSIPLJILcWNnUDIOYp/XhT/vPVZ7j7wEFjUWFmcRJ/GHeH8XKfjogSw4v85YoEEnITPxLsuGrU4unaf8QiexXLb4YhMfJnSUds+S/PCCtdY91xUEfaVhwMoXni9CP+rNMeL/hhewOnbMen2uiTf5/9WYvpQHAbakezGpFBbyyPtkAU2YT2HE=
+  file:
+  - _build/*.pdf
+  skip_cleanup: true
+  on:
+    repo: ThorProgKurs/uebungen
