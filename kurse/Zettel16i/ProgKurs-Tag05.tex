@@ -1,0 +1,48 @@
+\documentclass{uebungszettel}
+\begin{document}
+
+\begin{aufg}
+Schreibe Funktionen \verb|square_to| und \verb|root_to|, die einen \verb|double|-Pointer entgegen nehmen, die dort 
+stehende Variable quadrieren bzw. daraus die Wurzel ziehen und das Ergebnis sowohl zurück geben als auch an die gleiche 
+Speicherstelle schreiben.
+\end{aufg}
+
+\begin{aufg}
+Schreibe ein Modul \verb|arrayhelpers|, das einige nützliche Funktion zum Umgang mit \verb|int|-Arrays enthält:
+\begin{enumerate}
+\item Array zeilenweise oder mit Kommata getrennt ausgeben
+\item Alle Felder eines Arrays mit einem Wert initialisieren
+\item Array um $1$ rotieren (d.h. das hinterste Element an erste Stelle schreiben und alle anderen Elemente um eins nach hinten schieben)
+\item Array um $k$ rotieren 
+\item Array umdrehen
+\item Ein Array in einem anderen suchen und die Position zurück geben. Sollte das Array nicht im anderen enthalten sein, so soll der Rückgabewert $-1$ sein.
+
+\emph{Beispiel:} 
+\begin{codelisting}
+\begin{lstlisting}[numbers=left,numberstyle=\tiny,frame=tlrb]
+int A[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int B[3] = {4, 5, 6}
+int C[2] = {5, 7}
+int D[2] = {9, 10}
+\end{lstlisting}
+\end{codelisting}
+Hier gilt: \verb|B| ist an $3$-ter Stelle in \verb|A| enthalten und \verb|D| an $8$-ter. Das Array \verb|C| ist garnicht in \verb|A| enthalten, darum wird der Rückgabewert $-1$ sein.
+\end{enumerate}
+\end{aufg}
+    
+\begin{aufg} In dieser Aufgabe geht es um Sortieralgorithmen. Definiere dir ein Test-Array mit einer \emph{festen}
+ Anzahl von Einträgen mit denen du den Algorithmus testest. 
+\begin{enumerate} 
+\item Implementiere folgenden Sortieralgorithmus: Sortiere das kleines Element an die erste Stelle, dann das 
+zweitkleinste Element an die zweite Stelle usw. 
+
+Oder anders ausgedrückt: Betrachte das Array von Eintrag $1$ bis Eintrag $n$. Suche das kleinste Element und 
+vertausche es mit dem ersten Element des Arrays. Wiederhole dieses Vorgehen dann für das Array von Eintrag $2$ bis 
+Eintrag $n$ usw.
+
+\item Der obige Sortieralgorithmus hat Komplexität $\mathcal O(n^2)$ (wobei $n$ die Anzahl der Elemente ist). Aus theoretischer Sicht sind Sortieralgorithmen bis zu $\mathcal O(n \log(n))$ realisierbar. Wenn man nun aber die größer der zu sortierenden Eintrag einschränkt (z.B. sei die größte zu sortierende Zahl $20000$) ist es sogar möglich einen \emph{linearen} Sortieralgorithmus zu implementieren, also $\mathcal O(n)$. Dazu stellt man sich für jede Zahl einen leeren ``Bucket'' (Korb) vor. Dann geht man die Liste der zu sortierenden Einträge durch und für ein Verkommen der Zahl $k$ einen Ball in den $k$-ten Bucket. Danach geht man die Buckets vom ersten bis zu letzten durch. Ist am $k$-ten Bucket angekommen und es liegen $j$ Bälle darin, dann schreibe sukzessive $j$ mal die Zahl $k$ in die zu sortierende Liste. Da die Bälle genau den zu sortierenden Zahlen entsprechen ist die Liste nachher sortiert. 
+\end{enumerate}
+\noindent Du kannst natürlich  beide Algorithmen in das oben geschriebene Modul auslagern
+\end{aufg}
+
+\end{document}

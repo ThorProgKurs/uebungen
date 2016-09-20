@@ -42,7 +42,7 @@
 %\rohead{\includegraphics[height=25px]{aware_sw}}
 \lofoot{http://www.ah-effect.net/ \quad C-Kurs von Lars}
 \cofoot{}
-\rofoot{ProgKurs Informatik 2014}
+\rofoot{ProgKurs Informatik 2016}
 \setheadsepline{.5pt} % Linie unter dem Head
 \setfootsepline{.2pt} % Ganzunten
 %---------------------------------------------
